@@ -1,0 +1,59 @@
+spring:
+  application:
+    name: NJUPTPhySim
+  profiles:
+    active: dev
+  main:
+    allow-circular-references: true
+  datasource:
+      driver-class-name: ${njuptPhySim.datasource.driver-class-name}
+      url: jdbc:mysql://${njuptPhySim.datasource.host}:${njuptPhySim.datasource.port}/${njuptPhySim.datasource.database}?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+      username: ${njuptPhySim.datasource.username}
+      password: ${njuptPhySim.datasource.password}
+      type: ${njuptPhySim.datasource.type}
+
+
+
+server:
+  #tomcat port
+  port: 8081
+
+
+mybatis-plus:
+  #mapper
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: org.njupt.njuptphysim.pojo.po, org.njupt.njuptphysim.pojo.dto
+  configuration:
+    # turn on hump naming
+    map-underscore-to-camel-case: true
+    # turn on log
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      #Setting a Global Primary Key Policy for MybatisPlus (Auto-Increment)
+      id-type: auto
+
+logging:
+  level:
+    org:
+      njupt:
+        mapper: debug
+        service: info
+        controller: info
+        # 开启DispatcherServlet调试日志
+        org.springframework.web.servlet.DispatcherServlet: DEBUG
+            # 开启HandlerMapping日志
+        org.springframework.web.servlet.handler.AbstractHandlerMapping: DEBUG
+            # 开启异常处理日志
+        org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver: DEBUG
+            # 开启ErrorPageFilter日志
+        org.springframework.boot.web.servlet.error.ErrorPageFilter: DEBUG
+            # 开启全局异常处理器日志
+        com.yourpackage.GlobalExceptionHandler: DEBUG
+
+njupt-phy-sim:
+  jwt :
+    # 设置jwt签名加密时使用的秘钥
+    secret-key: sRvXq6N9K8474zQ7m73nF5jH1cV8b3a7
+    # 设置jwt过期时间,单位为毫秒，这里是1h
+    ttl-millis: 36000000

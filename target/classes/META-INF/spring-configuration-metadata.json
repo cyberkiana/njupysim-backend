@@ -1,0 +1,22 @@
+{
+  "groups": [
+    {
+      "name": "njupt-phy-sim.jwt",
+      "type": "org.njupt.njuptphysim.common.properties.JwtProperty",
+      "sourceType": "org.njupt.njuptphysim.common.properties.JwtProperty"
+    }
+  ],
+  "properties": [
+    {
+      "name": "njupt-phy-sim.jwt.secret-key",
+      "type": "java.lang.String",
+      "sourceType": "org.njupt.njuptphysim.common.properties.JwtProperty"
+    },
+    {
+      "name": "njupt-phy-sim.jwt.ttl-millis",
+      "type": "java.lang.Long",
+      "sourceType": "org.njupt.njuptphysim.common.properties.JwtProperty"
+    }
+  ],
+  "hints": []
+}

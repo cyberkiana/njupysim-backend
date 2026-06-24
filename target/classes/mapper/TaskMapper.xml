@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+		PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 绑定 Mapper 接口全包路径 -->
+<mapper namespace="org.njupt.njuptphysim.server.mapper.TaskMapper">
+
+
+    <insert id="addNewTask" parameterType="Tasks">
+		insert into njupt_physim.tasks(teacher, clazz_id, exp_id, start_date, end_date, total_count) VALUES
+		        (#{teacher}, #{clazzId}, #{expId}, #{startDate}, #{endDate}, #{totalCount})
+	</insert>
+
+	<select id="getCompletedExpStuList" resultType="StuCompletedListDTO">
+		select c.id as id, stu_id, score, u.name as stuName
+		from njupt_physim.completions c
+		left join njupt_physim.users u on c.stu_id=u.id
+		where task_id=#{taskId} and clazz_id=#{clazzId}
+	</select>
+
+	<select id="getExperimentDetail" resultType="Tasks">
+		select id,exp_id,end_date,total_count,complete_count
+		from njupt_physim.tasks
+		where clazz_id=#{clazzId} and exp_id=#{expId}
+	</select>
+
+</mapper>

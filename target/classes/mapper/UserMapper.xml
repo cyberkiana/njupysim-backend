@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+		PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 绑定 Mapper 接口全包路径 -->
+<mapper namespace="org.njupt.njuptphysim.server.mapper.UserMapper">
+    <select id="getTotalNum" resultType="int">
+        select count(*) from njupt_physim.users
+            <where>
+                <if test="null != id">
+                    and id like concat('%',#{id},'%')
+                </if>
+                <if test="null != name">
+                    and name like concat('%',#{name},'%')
+                </if>
+                <if test="null != roleId">
+                    and role_id like concat('%',#{roleId}, '%')
+                </if>
+            </where>
+    </select>
+
+    <select id="getAllByPage" resultType="Users">
+        select * from njupt_physim.users
+        <where>
+            <if test="null != id">
+                and id like concat('%',#{id},'%')
+            </if>
+            <if test="null != name">
+                and name like concat('%',#{name},'%')
+            </if>
+            <if test="null != roleId">
+                and role_id like concat('%',#{roleId}, '%')
+            </if>
+        </where>
+        limit #{offset}, #{pageSize}
+    </select>
+
+    <update id="editUserById">
+        update njupt_physim.users set
+            name = #{name},
+            account = #{account},
+            password = #{password},
+            role_id = #{roleId}
+        where id = #{id}
+    </update>
+
+    <insert id="addUserToClazz">
+        insert into njupt_physim.user_clazz(clazz_id, user_id, role_id)
+        VALUES (#{clazzId}, #{userId}, #{roleId})
+    </insert>
+
+    <select id="searchSecurityInfoByName" parameterType="String" resultType="UserDTO">
+        select id, name, create_time, role_id, avatar
+        from njupt_physim.users
+        where name = #{name}
+    </select>
+
+    <select id="searchBaseInfoById" parameterType="String" resultType="UserDTO">
+        select id,name,college
+        from njupt_physim.users
+        where id=#{id}
+    </select>
+
+</mapper>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+		PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- 绑定 Mapper 接口全包路径 -->
+<mapper namespace="org.njupt.njuptphysim.server.mapper.CommentMapper">
+
+    <select id="getCommentsByResourceId" resultType="Comments">
+        select * from njupt_physim.comments
+        where resource_id = #{resourceId} and visible = 1
+    </select>
+
+
+    <select id="getRepliesByCommentId" resultType="Replies">
+        select * from njupt_physim.replies
+        where comment_id = #{commentId} and visible = 1
+    </select>
+
+
+    <insert id="postComment" parameterType="Comments">
+        insert into njupt_physim.comments value
+                (#{userId},#{content},#{resourceId},#{time})
+    </insert>
+
+    <insert id="postReply" parameterType="Replies">
+        insert into njupt_physim.replies value
+                (#{userId}, #{commentId}, #{time}, #{content}, #{repliedUserName})
+    </insert>
+
+    <update id="addCommentLikes">
+        update njupt_physim.comments set likes = likes+1 where id = #{commentId}
+    </update>
+
+    <update id="addReplyLikes">
+        update njupt_physim.replies set likes = likes+1 where id = #{replyId}
+    </update>
+</mapper>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.njupt.njuptphysim.server.mapper.ClazzMapper">
+
+    <select id="getTotalNum" resultType="int">
+        select count(*) from njupt_physim.clazzes
+            <where>
+                <if test="null != id">
+                    and id like concat('%',#{id},'%')
+                </if>
+                <if test="null != createTime">
+                    and create_time like concat('%',#{createTime},'%')
+                </if>
+            </where>
+    </select>
+
+    <select id="getAllByPage" resultType="Clazzes">
+        select * from njupt_physim.clazzes
+            <where>
+                <if test="null != id">
+                    and id like concat('%',#{id},'%')
+                </if>
+                <if test="null != createTime">
+                    and create_time like concat('%',#{createTime},'%')
+                </if>
+            </where>
+            limit #{offset},#{pageSize}
+    </select>
+
+    <select id="getStuFromClazz" resultType="Users">
+        select *
+        from njupt_physim.users
+        where id in (
+            select user_id
+            from njupt_physim.user_clazz
+            where clazz_id = #{clazzid}
+            )
+    </select>
+
+    <delete id="deleteStuFromClazz" parameterType="String">
+        delete from njupt_physim.user_clazz
+        where user_id = #{stuId} and clazz_id = #{clazzId}
+    </delete>
+
+    <select id="getTeaClazzList" parameterType="String" resultType="ClazzListDTO">
+        select clazz_id from njupt_physim.user_clazz where user_id = #{teaId}
+    </select>
+
+    <select id="getTeacherOfClazz" parameterType="String" resultType="String">
+        select name from njupt_physim.users
+        where id in (
+                select user_id
+                from njupt_physim.user_clazz
+                where clazz_id=#{id} and role_id = 2
+            )
+    </select>
+</mapper>
