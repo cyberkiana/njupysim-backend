@@ -1,6 +1,7 @@
 package org.njupt.njuptphysim.server.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
+import org.njupt.njuptphysim.common.exceptions.BaseException;
 import org.njupt.njuptphysim.pojo.dto.CommentDTO;
 import org.njupt.njuptphysim.pojo.dto.ExpEvaluationDTO;
 import org.njupt.njuptphysim.pojo.dto.ExpListDTO;
@@ -34,7 +35,7 @@ public class ResourcesServiceImpl implements ResourcesService {
         //判断资源是否存在
         resources.setCreaterId("ROOT");
         if (resourcesMapper.getResourcesByName(resources.getTitle()) != null) {
-            throw new RuntimeException("同名资源已存在");
+            throw new BaseException("同名资源已存在");
         }
         //添加资源
         resourcesMapper.insert(resources);
@@ -48,7 +49,7 @@ public class ResourcesServiceImpl implements ResourcesService {
     public void deleteResources(String name) {
         //判断资源是否存在
         if (resourcesMapper.getResourcesByName(name) == null) {
-            throw new RuntimeException("资源不存在");
+            throw new BaseException("资源不存在");
         }
         //删除资源
         resourcesMapper.deleteByName(name);
@@ -63,7 +64,7 @@ public class ResourcesServiceImpl implements ResourcesService {
     public void updateResources(ResourcesUpdateDTO resources) {
         // 判断资源是否存在
         if (resourcesMapper.getResourcesByName(resources.getOldName()) == null) {
-            throw new RuntimeException("资源不存在");
+            throw new BaseException("资源不存在");
         }
 
         // 直接设置要更新的字段

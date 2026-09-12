@@ -33,9 +33,16 @@ public class ReservationServiceImpl implements ReservationService {
 
     @Override
     public void addReservation(StuReservations stuReservation) {
-        System.out.println(stuReservation);
-        reservationMapper.addNewStuReservation(stuReservation.getStuId(),stuReservation.getDay(),stuReservation.getSlot());
-        reservationMapper.addReservationsNum(stuReservation.getDay(), stuReservation.getSlot());
+        LocalDate day = stuReservation.getDay();
+        Integer slot = stuReservation.getSlot();
+
+        reservationMapper.addNewStuReservation(stuReservation.getStuId(), day, slot);
+        int count = reservationMapper.searchReservationCount(day, slot);
+        int maxReservationCount = reservationMapper.searchMaxReservationCount(day, slot);
+        if (count < maxReservationCount){
+            reservationMapper.addReservationsNum(day, slot);
+        }
+
     }
 
     @Override

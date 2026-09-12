@@ -1,12 +1,76 @@
 {
   "groups": [
     {
+      "name": "ip-filter",
+      "type": "org.njupt.njuptphysim.common.properties.IpFilterProperty",
+      "sourceType": "org.njupt.njuptphysim.common.properties.IpFilterProperty"
+    },
+    {
+      "name": "ip-filter.blacklist",
+      "type": "org.njupt.njuptphysim.common.properties.IpFilterProperty$Blacklist",
+      "sourceType": "org.njupt.njuptphysim.common.properties.IpFilterProperty",
+      "sourceMethod": "getBlacklist()"
+    },
+    {
+      "name": "ip-filter.whitelist",
+      "type": "org.njupt.njuptphysim.common.properties.IpFilterProperty$Whitelist",
+      "sourceType": "org.njupt.njuptphysim.common.properties.IpFilterProperty",
+      "sourceMethod": "getWhitelist()"
+    },
+    {
       "name": "njupt-phy-sim.jwt",
       "type": "org.njupt.njuptphysim.common.properties.JwtProperty",
       "sourceType": "org.njupt.njuptphysim.common.properties.JwtProperty"
     }
   ],
   "properties": [
+    {
+      "name": "ip-filter.blacklist-ips",
+      "type": "java.util.List<java.lang.String>",
+      "sourceType": "org.njupt.njuptphysim.common.properties.IpFilterProperty"
+    },
+    {
+      "name": "ip-filter.blacklist.ips",
+      "type": "java.util.List<java.lang.String>",
+      "description": "黑名单 IP 规则列表。",
+      "sourceType": "org.njupt.njuptphysim.common.properties.IpFilterProperty$Blacklist"
+    },
+    {
+      "name": "ip-filter.enabled",
+      "type": "java.lang.Boolean",
+      "description": "是否启用 IP 过滤（对应 ip-filter.enabled）。",
+      "sourceType": "org.njupt.njuptphysim.common.properties.IpFilterProperty",
+      "defaultValue": true
+    },
+    {
+      "name": "ip-filter.exclude-url-list",
+      "type": "java.util.List<java.lang.String>",
+      "sourceType": "org.njupt.njuptphysim.common.properties.IpFilterProperty"
+    },
+    {
+      "name": "ip-filter.exclude-urls",
+      "type": "java.util.List<java.lang.String>",
+      "description": "需要跳过 IP 过滤的 URL 路径（对应 ip-filter.exclude-urls）。",
+      "sourceType": "org.njupt.njuptphysim.common.properties.IpFilterProperty"
+    },
+    {
+      "name": "ip-filter.use-whitelist",
+      "type": "java.lang.Boolean",
+      "description": "过滤模式：true 表示白名单模式，false 表示黑名单模式。",
+      "sourceType": "org.njupt.njuptphysim.common.properties.IpFilterProperty",
+      "defaultValue": false
+    },
+    {
+      "name": "ip-filter.whitelist-ips",
+      "type": "java.util.List<java.lang.String>",
+      "sourceType": "org.njupt.njuptphysim.common.properties.IpFilterProperty"
+    },
+    {
+      "name": "ip-filter.whitelist.ips",
+      "type": "java.util.List<java.lang.String>",
+      "description": "白名单 IP 规则列表。",
+      "sourceType": "org.njupt.njuptphysim.common.properties.IpFilterProperty$Whitelist"
+    },
     {
       "name": "njupt-phy-sim.jwt.secret-key",
       "type": "java.lang.String",

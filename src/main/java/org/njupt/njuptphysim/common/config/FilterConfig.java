@@ -1,34 +1,38 @@
 package org.njupt.njuptphysim.common.config;
 
 import org.njupt.njuptphysim.common.filters.IpFilter;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.njupt.njuptphysim.common.properties.IpFilterProperty;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+/**
+ * Servlet 过滤器注册配置。
+ */
 @Configuration
 public class FilterConfig {
 
-    @Autowired
-    private IpFilter ipFilter;
-
+    /**
+     * 注册 IP 过滤器，并由配置属性控制其启用状态。
+     */
     @Bean
-    public FilterRegistrationBean<IpFilter> tokenFilterRegistration() {
+    public FilterRegistrationBean<IpFilter> ipFilterRegistration(IpFilterProperty ipFilterProperty) {
         FilterRegistrationBean<IpFilter> registration = new FilterRegistrationBean<>();
 
-        // 注入TokenFilter实例
-        registration.setFilter(ipFilter);
+        // 由 FilterConfig 统一创建过滤器，避免与 @Component 自动注册重复
+        registration.setFilter(new IpFilter(ipFilterProperty));
 
-        // 设置拦截的URL模式
+        // 拦截所有请求，具体放行/拦截逻辑由 IpFilter 内部处理
         registration.addUrlPatterns("/*");
 
-        // 设置过滤器名称
+        // 设置过滤器名称和执行顺序，数字越小越先执行
         registration.setName("ipFilter");
-
-        // 设置过滤器执行顺序（数字越小越先执行）
         registration.setOrder(1);
 
-        // 是否启用异步支持
+        // 是否启用该过滤器，跟随 application.yml ip-filter.enabled
+        registration.setEnabled(ipFilterProperty.isEnabled());
+
+        // 启用异步支持
         registration.setAsyncSupported(true);
 
         return registration;

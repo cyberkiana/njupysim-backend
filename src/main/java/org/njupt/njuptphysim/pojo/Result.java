@@ -1,10 +1,13 @@
 package org.njupt.njuptphysim.pojo;
 
 import lombok.Data;
+
+import java.io.Serial;
 import java.io.Serializable;
 
 @Data
 public class Result implements Serializable {
+    @Serial
     private static final long serialVersionUID = 1L;
 
     private Integer code;
@@ -30,6 +33,13 @@ public class Result implements Serializable {
         Result result = new Result();
         result.msg = msg;
         result.code = 0;
+        return result;
+    }
+
+    public static Result error(Integer code, String msg) {
+        Result result = new Result();
+        result.msg = msg;
+        result.code = code;
         return result;
     }
 }

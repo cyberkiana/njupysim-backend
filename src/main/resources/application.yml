@@ -11,6 +11,17 @@ spring:
       username: ${njuptPhySim.datasource.username}
       password: ${njuptPhySim.datasource.password}
       type: ${njuptPhySim.datasource.type}
+  data:
+    redis:
+      host: 192.168.233.130
+      port: 6379
+      lettuce:
+        pool:
+          enabled: true   # 必须写，3.x 默认 false
+          max-active: 8
+          max-idle: 8
+          min-idle: 0
+      password: 123456
 
 
 
@@ -64,19 +75,24 @@ ip-filter:
   enabled: true
   # 过滤模式：true=白名单模式，false=黑名单模式
   use-whitelist: false
-  # 黑名单IP列表（支持单个IP、通配符格式、CIDR格式）
+  # 名单规则支持：
+  #   - 精确IP：192.168.1.100
+  #   - 通配符：192.168.2.* 或 192.168.*.*（* 替代任意一个IPv4段）
+  #   - CIDR网段：10.0.1.0/24
+  # 黑名单IP列表
   blacklist:
     ips:
-      - 192.168.1.100
-      - 10.0.0.50
-      - 172.16.0.1
-      - 192.168.2.*
-      - 10.0.1.0/24
-  # 白名单IP列表（支持单个IP、通配符格式、CIDR格式）
+
+  # 白名单IP列表
   whitelist:
     ips:
       - 127.0.0.1
       - 192.168.1.0/24
       - 10.0.0.*
-  # 排除过滤的URL路径（多个用逗号分隔）
-  exclude-urls: /login,/register,/public/*,/health,/actuator/*
+  # 排除过滤的URL路径，支持Ant风格通配符
+  exclude-urls:
+    - /login
+    - /register
+    - /public/**
+    - /actuator/**
+    - /error

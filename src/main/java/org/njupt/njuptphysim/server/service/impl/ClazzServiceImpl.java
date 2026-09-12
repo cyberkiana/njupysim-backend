@@ -1,5 +1,6 @@
 package org.njupt.njuptphysim.server.service.impl;
 
+import org.njupt.njuptphysim.common.exceptions.BaseException;
 import org.njupt.njuptphysim.pojo.dto.ClazzListDTO;
 import org.njupt.njuptphysim.pojo.po.Clazzes;
 import org.njupt.njuptphysim.pojo.po.Users;
@@ -26,7 +27,7 @@ public class ClazzServiceImpl implements ClazzService {
     public void addClazz(Clazzes clazz) {
         //检查班级是否存在
         if (clazzMapper.selectById(clazz.getId()) != null) {
-            throw new RuntimeException("班级已存在");
+            throw new BaseException("班级已存在");
         }
         clazzMapper.insert(clazz);
     }
@@ -35,11 +36,11 @@ public class ClazzServiceImpl implements ClazzService {
     public void deleteClazz(String id) {
         //检查班级是否存在
         if (clazzMapper.selectById(id)== null) {
-            throw new RuntimeException("班级不存在");
+            throw new BaseException("班级不存在");
         }
         //如果删除的班级仍然存在用户,则不能删除
         if (!userClazzMapper.getAllUserIdByClazzId(id).isEmpty() && userClazzMapper.getAllUserIdByClazzId(id) != null ) {
-            throw new RuntimeException("该班级仍有用户关联，无法删除");
+            throw new BaseException("该班级仍有用户关联，无法删除");
         }
         //删除班级
         clazzMapper.deleteById(id);
@@ -49,7 +50,7 @@ public class ClazzServiceImpl implements ClazzService {
     public void changeTeacher(String id, String teacher) {
         //检查班级是否存在
         if (clazzMapper.selectById(id)== null) {
-            throw new RuntimeException("班级不存在");
+            throw new BaseException("班级不存在");
         }
         //修改班级教师
         clazzMapper.updateTeacher(id, teacher);

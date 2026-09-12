@@ -1,5 +1,6 @@
 package org.njupt.njuptphysim.server.service.impl;
 
+import org.njupt.njuptphysim.common.exceptions.BaseException;
 import org.njupt.njuptphysim.common.properties.JwtProperty;
 import org.njupt.njuptphysim.common.utils.JwtUtil;
 import org.njupt.njuptphysim.pojo.dto.LoginDTO;
@@ -32,7 +33,7 @@ public class LoginServiceImpl implements LoginService {
         Users users = usersMapper.getByAccountAndPassword(loginDTO.getAccount(),loginDTO.getPassword());
         //判断账号密码是否正确
         if(users == null){
-            throw new RuntimeException("账号密码错误");
+            throw new BaseException("账号密码错误");
         }
 
         //获取用户角色
