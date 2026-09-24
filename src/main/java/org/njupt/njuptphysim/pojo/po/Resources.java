@@ -1,4 +1,5 @@
 package org.njupt.njuptphysim.pojo.po;
+import com.baomidou.mybatisplus.annotation.TableField;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,6 +22,10 @@ public class Resources implements Serializable {
     private LocalDate createTime;
 
     private String createrId;
+
+    /** 表列名为驼峰 coverImage，需显式指定避免映射为 cover_image */
+    @TableField("coverImage")
+    private String coverImage;
 
     private String url;
 

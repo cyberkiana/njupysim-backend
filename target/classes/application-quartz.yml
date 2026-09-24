@@ -1,0 +1,12 @@
+spring:
+  quartz:
+    job-store-type: jdbc
+    jdbc:
+      initialize-schema: never
+    wait-for-jobs-to-complete-on-shutdown: true
+    auto-startup: true
+    overwrite-existing-jobs: false
+    startup-delay: 5s
+    scheduler-name: QuaztzScheduler
+    properties:
+      org.quartz.jobStore.misfireThreshold: 5000

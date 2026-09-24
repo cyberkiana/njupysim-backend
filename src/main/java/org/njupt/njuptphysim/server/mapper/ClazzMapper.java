@@ -1,6 +1,7 @@
 package org.njupt.njuptphysim.server.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
@@ -14,8 +15,20 @@ import java.util.List;
 @Mapper
 public interface ClazzMapper extends BaseMapper<Clazzes> {
 
-    @Update("update njupt_physim.user_clazz set user_id = #{teacherId} where clazz_id = #{id} and user_id = #{teacherId}")
-    void updateTeacher(String clazzId, String teacherId);
+    /**
+     * 更换班级教师：把该班 role_id=2（教师）关联行的 user_id 改为新教师
+     * @param clazzId 班级id
+     * @param teacherId 新教师id
+     * @return 受影响行数（0 表示该班尚无教师关联）
+     */
+    @Update("update njupt_physim.user_clazz set user_id = #{teacherId} where clazz_id = #{clazzId} and role_id = 2")
+    int updateTeacher(@Param("clazzId") String clazzId, @Param("teacherId") String teacherId);
+
+    /**
+     * 班级尚无教师关联时插入新教师（role_id=2）
+     */
+    @Insert("insert into njupt_physim.user_clazz (clazz_id, user_id, role_id) values (#{clazzId}, #{teacherId}, 2)")
+    void insertClassTeacher(@Param("clazzId") String clazzId, @Param("teacherId") String teacherId);
 
     /**
      * 分页查询
@@ -40,7 +53,7 @@ public interface ClazzMapper extends BaseMapper<Clazzes> {
      * @param clazzId
      * @return
      */
-    List<Users> getStuFromClazz(String clazzId);
+    List<org.njupt.njuptphysim.pojo.vo.UserVO> getStuFromClazz(String clazzId);
 
     /**
      * 从班级内删除学生
@@ -77,8 +90,8 @@ public interface ClazzMapper extends BaseMapper<Clazzes> {
      * @param clazzId 班级id
      * @return List<Users>
      */
-    @Select("select * from njupt_physim.users where id in (select user_id from njupt_physim.user_clazz where clazz_id=#{clazzId} and user_clazz.role_id=3 )")
-    List<Users> getStusOfClazz(String clazzId);
+    @Select("select id, name, account, create_time, role_id, avatar, college from njupt_physim.users where id in (select user_id from njupt_physim.user_clazz where clazz_id=#{clazzId} and user_clazz.role_id=3 )")
+    List<org.njupt.njuptphysim.pojo.vo.UserVO> getStusOfClazz(String clazzId);
 
     /**
      * 根据班级id获取任课老师姓名

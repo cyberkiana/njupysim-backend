@@ -25,6 +25,8 @@ public class Reservations implements Serializable {
     private Integer slot;
     private Integer reservationCount;
     private Integer maxCount;
+    /** 当日此时段是否允许预约(1:允许 0:禁止) */
+    private Integer isActive;
 
 
 }

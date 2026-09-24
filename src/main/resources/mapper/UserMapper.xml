@@ -19,8 +19,9 @@
             </where>
     </select>
 
-    <select id="getAllByPage" resultType="Users">
-        select * from njupt_physim.users
+    <select id="getAllByPage" resultType="org.njupt.njuptphysim.pojo.vo.UserVO">
+        select id, name, account, create_time, role_id, avatar, college
+        from njupt_physim.users
         <where>
             <if test="null != id">
                 and id like concat('%',#{id},'%')
@@ -36,11 +37,15 @@
     </select>
 
     <update id="editUserById">
-        update njupt_physim.users set
+        update njupt_physim.users
+        <set>
             name = #{name},
             account = #{account},
-            password = #{password},
+            <if test="password != null and password != ''">
+                password = #{password},
+            </if>
             role_id = #{roleId}
+        </set>
         where id = #{id}
     </update>
 
@@ -60,5 +65,9 @@
         from njupt_physim.users
         where id=#{id}
     </select>
+
+    <update id="updateAvatarById">
+        update njupt_physim.users set avatar = #{avatar} where id = #{id}
+    </update>
 
 </mapper>

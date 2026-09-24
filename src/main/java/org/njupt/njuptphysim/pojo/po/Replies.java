@@ -18,6 +18,8 @@ public class Replies implements Serializable {
     private Integer id;
     private String userId;
     private Integer commentId;
+    /** 冗余实验id（来自 comments.resource_id），便于按实验维度检索回复 */
+    private Integer resourceId;
     private Date time;
     private String content;
     private Integer likes;

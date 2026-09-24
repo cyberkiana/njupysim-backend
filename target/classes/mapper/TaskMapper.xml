@@ -18,10 +18,5 @@
 		where task_id=#{taskId} and clazz_id=#{clazzId}
 	</select>
 
-	<select id="getExperimentDetail" resultType="Tasks">
-		select id,exp_id,end_date,total_count,complete_count
-		from njupt_physim.tasks
-		where clazz_id=#{clazzId} and exp_id=#{expId}
-	</select>
-
+	
 </mapper>

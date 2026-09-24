@@ -1,7 +1,6 @@
 package org.njupt.njuptphysim.server.service;
 
 import org.njupt.njuptphysim.pojo.dto.CommentDTO;
-import org.njupt.njuptphysim.pojo.dto.ExpEvaluationDTO;
 import org.njupt.njuptphysim.pojo.dto.ExpListDTO;
 import org.njupt.njuptphysim.pojo.dto.ResourcesUpdateDTO;
 import org.njupt.njuptphysim.pojo.po.Resources;
@@ -45,6 +44,19 @@ public interface ResourcesService {
      */
     List<ExpListDTO> getAllExpList();
 
+    /**
+     * 实验评价：每个用户对每个实验仅能评价一次（点赞/十分简单/十分困难三选一）
+     * @param resourceId 实验id
+     * @param userId 用户id
+     * @param type likes/easy/hard
+     */
+    void evaluate(int resourceId, String userId, String type);
+
+    /**
+     * 查询当前用户对某实验的评价类型
+     * @return likes/easy/hard，未评价时为 null
+     */
+    String getMyEvaluationType(int resourceId, String userId);
 
     /**
      * 查找班级布置的实验
@@ -59,14 +71,6 @@ public interface ResourcesService {
      * @return ExpVO
      */
     ExpVO getExpDetail(int id);
-
-    /**
-     * 点赞、十分简单、十分困难评价计数+1
-     * @param id 实验id
-     * @param expEvaluationDTO likes easyCount hardCount null ? 1
-     */
-    void updateEvaluation(int id, ExpEvaluationDTO expEvaluationDTO);
-
 
 
 

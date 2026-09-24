@@ -5,6 +5,11 @@ spring:
     active: dev
   main:
     allow-circular-references: true
+  servlet:
+    multipart:
+      # 头像上传限制2MB；WebGL实验文件较大，放宽到200MB
+      max-file-size: 200MB
+      max-request-size: 210MB
   datasource:
       driver-class-name: ${njuptPhySim.datasource.driver-class-name}
       url: jdbc:mysql://${njuptPhySim.datasource.host}:${njuptPhySim.datasource.port}/${njuptPhySim.datasource.database}?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
@@ -38,7 +43,7 @@ mybatis-plus:
     # turn on hump naming
     map-underscore-to-camel-case: true
     # turn on log
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    log-impl: org.apache.ibatis.logging.slf4j.Slf4jImpl
   global-config:
     db-config:
       #Setting a Global Primary Key Policy for MybatisPlus (Auto-Increment)
@@ -69,19 +74,39 @@ njupt-phy-sim:
     # 设置jwt过期时间,单位为毫秒，这里是1h
     ttl-millis: 36000000
 
+# 头像存储配置：文件存放在虚拟机nginx静态目录，后端通过WebDAV PUT推送
+avatar:
+  # nginx所在地址（虚拟机）
+  nginx-base-url: http://192.168.233.130
+  # nginx的WebDAV上传路径（对应nginx配置中 dav_methods PUT 的location）
+  upload-path: /_avatar_upload/
+  # 头像静态访问路径前缀（存数据库的相对url，由nginx静态服务/前端dev代理解析）
+  static-path: /avatar/
+
+# 预约时段配置：定时任务与启动补漏按此范围生成每天的时段
+# slot 取起始小时（如 slot=8 代表 8:00~9:00），前端预约页展示 6:00~24:00
+reservation:
+  slot-start-hour: 6
+  slot-end-hour: 23
+
+# WebGL实验文件存放目录（服务器独立文件夹）
+# 上传接口 POST /admin/res/upload-webgl 写入此目录，GET /webgl/** 静态访问
+webgl:
+  upload-dir: ./webgl-files
+
+# 实验头图存放目录（服务器独立文件夹）
+# 上传接口 POST /admin/res/upload-cover 写入此目录，GET /img/** 静态访问，路径存 resources.coverImage
+resource:
+  img-dir: ./img
+
 # IP过滤配置
+# 黑名单已迁移到数据库表 sys_ip_blacklist（管理员可在日志页面查看并解封），
+# 此处 blacklist.ips 配置不再生效，仅保留白名单与排除URL配置
 ip-filter:
   # 是否启用IP过滤
   enabled: true
-  # 过滤模式：true=白名单模式，false=黑名单模式
+  # 过滤模式：true=白名单模式，false=黑名单模式（黑名单读数据库表 sys_ip_blacklist）
   use-whitelist: false
-  # 名单规则支持：
-  #   - 精确IP：192.168.1.100
-  #   - 通配符：192.168.2.* 或 192.168.*.*（* 替代任意一个IPv4段）
-  #   - CIDR网段：10.0.1.0/24
-  # 黑名单IP列表
-  blacklist:
-    ips:
 
   # 白名单IP列表
   whitelist:

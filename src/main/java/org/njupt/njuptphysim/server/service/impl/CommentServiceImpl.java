@@ -1,5 +1,6 @@
 package org.njupt.njuptphysim.server.service.impl;
 
+import org.njupt.njuptphysim.common.exceptions.BaseException;
 import org.njupt.njuptphysim.pojo.dto.CommentDTO;
 import org.njupt.njuptphysim.pojo.dto.ReplyDTO;
 import org.njupt.njuptphysim.pojo.po.Comments;
@@ -14,7 +15,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 
 @Transactional
 @Service
@@ -80,6 +83,7 @@ public class CommentServiceImpl implements CommentService {
     public void postReply(int expId, int commentId, ReplyDTO reply) {
         Replies r = Replies.builder()
                 .commentId(commentId)
+                .resourceId(expId)
                 .userId(reply.getUserId())
                 .content(reply.getContent())
                 .time(reply.getTime())
@@ -96,6 +100,36 @@ public class CommentServiceImpl implements CommentService {
     @Override
     public void addReplyLikes(int replyId) {
         commentMapper.addReplyLikes(replyId);
+    }
+
+    @Override
+    public void deleteComment(int commentId) {
+        if (commentMapper.deleteComment(commentId) == 0) {
+            throw new BaseException("评论不存在或已删除");
+        }
+    }
+
+    @Override
+    public void deleteReply(int replyId) {
+        if (commentMapper.deleteReply(replyId) == 0) {
+            throw new BaseException("回复不存在或已删除");
+        }
+    }
+
+    @Override
+    public List<Integer> searchCommentIds(int resourceId, String start, String end) {
+        //评论走 (resource_id,visible,time) 索引, 回复走 (visible,time,comment_id) 覆盖索引;
+        //LinkedHashSet 保序去重, 避免大列表下 List.contains 的 O(n^2)
+        Set<Integer> ids = new LinkedHashSet<>();
+        for (Comments c : commentMapper.searchCommentsByTime(resourceId, start, end)) {
+            ids.add(c.getId());
+        }
+        for (Replies r : commentMapper.searchRepliesByTime(resourceId, start, end)) {
+            if (r.getCommentId() != null) {
+                ids.add(r.getCommentId());
+            }
+        }
+        return new ArrayList<>(ids);
     }
 
 }

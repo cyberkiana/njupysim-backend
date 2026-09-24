@@ -23,6 +23,9 @@ public class LoginInterceptor implements HandlerInterceptor {
     @Autowired
     private JwtProperty jwtProperty;
 
+    @Autowired
+    private org.njupt.njuptphysim.server.service.UserBanService userBanService;
+
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 
@@ -85,6 +88,16 @@ public class LoginInterceptor implements HandlerInterceptor {
 
         //8.设置当前线程的用户id
         BaseContext.setCurrentId(parseJWT.get("id").toString());
+
+        //8.5 校验账号是否被封禁。必须在 setCurrentId 之后执行,
+        //否则上下文无用户id, 封禁检查恒为假(曾因此失效, 勿调整顺序)
+        if (userBanService.getActiveUserIds().contains(BaseContext.getCurrentId())) {
+            log.info("账号[{}]已被封禁, 拒绝访问", BaseContext.getCurrentId());
+            response.setStatus(HttpStatus.FORBIDDEN.value());
+            response.setContentType("application/json;charset=UTF-8");
+            response.getWriter().write("{\"code\":0,\"msg\":\"该账号已被封禁，请联系管理员\"}");
+            return false;
+        }
 
         return true;
     }

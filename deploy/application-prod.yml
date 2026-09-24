@@ -1,0 +1,38 @@
+# =====================================================================
+# NJUPTPhySim 生产环境配置（放在服务器上 jar 同目录，随 jar 启动加载）
+#
+# 启动命令：
+#   java -jar NJUPTPhySim-0.0.1-SNAPSHOT.jar --spring.profiles.active=prod
+#
+# 本文件会覆盖 jar 包内的 application.yml 对应配置项。
+# 上传到服务器后，把下面两处【修改】的密码改成你在服务器上实际设置的值。
+# =====================================================================
+
+njuptPhySim:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    host: 127.0.0.1                # 数据库与后端同机
+    port: 3306
+    database: njupt_physim
+    username: njupt                # 【修改】服务器MySQL业务账号
+    password: 改成服务器MySQL密码    # 【修改】
+    type: com.alibaba.druid.pool.DruidDataSource
+
+spring:
+  data:
+    redis:
+      host: 127.0.0.1              # Redis与后端同机
+      port: 6379
+      password: 改成服务器Redis密码  # 【修改】服务器Redis requirepass（推荐设置密码）
+      lettuce:
+        pool:
+          enabled: true
+          max-active: 8
+          max-idle: 8
+          min-idle: 0
+
+# 头像存储：后端通过本机nginx上传（WebDAV），前端通过 /avatar/ 相对路径访问
+avatar:
+  nginx-base-url: http://127.0.0.1
+  upload-path: /_avatar_upload/
+  static-path: /avatar/

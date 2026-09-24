@@ -49,4 +49,25 @@ public interface CommentService {
      * @param replyId 回复id
      */
     void addReplyLikes(int replyId);
+
+    /**
+     * 管理员删除评论（软删除visible）
+     * @param commentId 评论id
+     */
+    void deleteComment(int commentId);
+
+    /**
+     * 管理员删除回复（软删除visible）
+     * @param replyId 回复id
+     */
+    void deleteReply(int replyId);
+
+    /**
+     * 按时间范围搜索实验下的评论与回复（评论命中返回其id, 回复命中返回其主评论id, 已去重）
+     * @param resourceId 实验id
+     * @param start 起始时间(含), yyyy-MM-dd HH:mm:ss
+     * @param end 结束时间(不含), yyyy-MM-dd HH:mm:ss
+     * @return 命中的主评论id列表（按命中时间降序）
+     */
+    java.util.List<Integer> searchCommentIds(int resourceId, String start, String end);
 }

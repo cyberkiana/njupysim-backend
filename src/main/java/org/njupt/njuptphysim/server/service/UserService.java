@@ -9,7 +9,24 @@ import java.util.List;
 
 
 public interface UserService {
-    List<Users> getByPage(String id, String name, Integer roleId, int offset, int pageSize);
+    java.util.List<org.njupt.njuptphysim.pojo.vo.UserVO> getByPage(String id, String name, Integer roleId, int offset, int pageSize);
+
+    /**
+     * 重置用户密码为初始密码123456
+     */
+    void resetPassword(String id);
+
+    /**
+     * 删除用户头像
+     */
+    void clearAvatar(String id);
+
+    /**
+     * 修改自己的密码：目标用户由登录令牌决定，先校验原密码
+     * @param oldPassword 原密码
+     * @param newPassword 新密码
+     */
+    void changePassword(String oldPassword, String newPassword);
 
     int getTotalNum(String id, String name, Integer roleId);
 
@@ -41,6 +58,13 @@ public interface UserService {
      * @return 头像url
      */
     String getAvatarById(String id);
+
+    /**
+     * 更新用户头像url
+     * @param id 用户id
+     * @param avatar 头像url
+     */
+    void updateAvatar(String id, String avatar);
 
     /**
      * 根据id查询角色id

@@ -5,6 +5,8 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.njupt.njuptphysim.common.properties.IpFilterProperty;
+import org.njupt.njuptphysim.common.utils.IpUtil;
+import org.njupt.njuptphysim.server.service.IpBlacklistService;
 import org.springframework.util.AntPathMatcher;
 
 import java.io.IOException;
@@ -14,6 +16,8 @@ import java.util.List;
  * IP 访问过滤 Servlet 过滤器。
  *
  * <p>支持两种过滤模式：白名单模式只放行命中的 IP，黑名单模式只拦截命中的 IP。
+ * 黑名单从数据库表 sys_ip_blacklist 动态读取（管理员可在页面查看并解封），
+ * 白名单仍来自 application.yml 配置。
  * 名单规则支持精确 IP、IPv4 通配符和 CIDR 网段，URL 排除规则使用 Ant 路径匹配。</p>
  */
 @Slf4j
@@ -22,10 +26,14 @@ public class IpFilter implements Filter {
     private static final String UNKNOWN_IP = "unknown";
 
     private final IpFilterProperty ipFilterProperty;
+
+    private final IpBlacklistService ipBlacklistService;
+
     private final AntPathMatcher pathMatcher = new AntPathMatcher();
 
-    public IpFilter(IpFilterProperty ipFilterProperty) {
+    public IpFilter(IpFilterProperty ipFilterProperty, IpBlacklistService ipBlacklistService) {
         this.ipFilterProperty = ipFilterProperty;
+        this.ipBlacklistService = ipBlacklistService;
     }
 
     /**
@@ -36,7 +44,7 @@ public class IpFilter implements Filter {
         log.info("========== IpFilter初始化完成 ==========");
         log.info("IP过滤状态：{}", ipFilterProperty.getStatusDescription());
         log.info("IP过滤模式：{}", ipFilterProperty.getModeDescription());
-        log.info("黑名单IP列表：{}", ipFilterProperty.getBlacklistIps());
+        log.info("数据库黑名单IP列表：{}", ipBlacklistService.getActiveIps());
         log.info("白名单IP列表：{}", ipFilterProperty.getWhitelistIps());
         log.info("排除URL列表：{}", ipFilterProperty.getExcludeUrlList());
         log.info("==========================================");
@@ -60,7 +68,7 @@ public class IpFilter implements Filter {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         HttpServletResponse response = (HttpServletResponse) servletResponse;
 
-        String clientIp = getClientIp(request);
+        String clientIp = IpUtil.getClientIp(request);
         String requestUri = request.getRequestURI();
         String method = request.getMethod();
 
@@ -104,48 +112,6 @@ public class IpFilter implements Filter {
     }
 
     /**
-     * 获取客户端真实 IP 地址。
-     *
-     * <p>优先读取常见代理请求头；当请求头缺失或为 unknown 时，回退到
-     * {@link HttpServletRequest#getRemoteAddr()}。多级代理时取第一个 IP。</p>
-     */
-    private String getClientIp(HttpServletRequest request) {
-        String ip = null;
-
-        // 按优先级从各个请求头获取真实 IP
-        String[] headerNames = {
-                "X-Forwarded-For",
-                "Proxy-Client-IP",
-                "WL-Proxy-Client-IP",
-                "HTTP_CLIENT_IP",
-                "HTTP_X_FORWARDED_FOR"
-        };
-
-        for (String headerName : headerNames) {
-            String headerIp = request.getHeader(headerName);
-            ip = headerIp == null ? null : headerIp.trim();
-            if (ip != null && !ip.isEmpty() && !UNKNOWN_IP.equalsIgnoreCase(ip)) {
-                break;
-            }
-        }
-
-        // 如果所有请求头都没有获取到 IP，使用 getRemoteAddr
-        if (ip == null || ip.isEmpty() || UNKNOWN_IP.equalsIgnoreCase(ip)) {
-            ip = request.getRemoteAddr();
-        }
-        if (ip != null) {
-            ip = ip.trim();
-        }
-
-        // 对于通过多级代理的情况，取第一个 IP（客户端真实 IP）
-        if (ip != null && ip.contains(",")) {
-            ip = ip.split(",")[0].trim();
-        }
-
-        return ip != null ? ip : UNKNOWN_IP;
-    }
-
-    /**
      * 判断请求 URI 是否命中排除列表，命中时跳过 IP 过滤。
      */
     private boolean isExcludedUrl(String requestUri) {
@@ -185,10 +151,10 @@ public class IpFilter implements Filter {
             }
             return allowed;
         } else {
-            // 黑名单模式：在黑名单中的 IP 不能访问
-            boolean blocked = isIpInList(clientIp, ipFilterProperty.getBlacklistIps());
+            // 黑名单模式：在黑名单中的 IP 不能访问（黑名单来自数据库表 sys_ip_blacklist）
+            boolean blocked = isIpInList(clientIp, ipBlacklistService.getActiveIps());
             if (blocked) {
-                log.warn("IP: {} 在黑名单中", clientIp);
+                log.warn("IP: {} 在数据库黑名单中", clientIp);
             }
             return !blocked;
         }

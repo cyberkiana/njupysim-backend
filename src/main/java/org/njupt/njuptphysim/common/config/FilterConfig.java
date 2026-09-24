@@ -2,6 +2,7 @@ package org.njupt.njuptphysim.common.config;
 
 import org.njupt.njuptphysim.common.filters.IpFilter;
 import org.njupt.njuptphysim.common.properties.IpFilterProperty;
+import org.njupt.njuptphysim.server.service.IpBlacklistService;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -14,13 +15,15 @@ public class FilterConfig {
 
     /**
      * 注册 IP 过滤器，并由配置属性控制其启用状态。
+     * 黑名单来自数据库表 sys_ip_blacklist（通过 IpBlacklistService 读取）。
      */
     @Bean
-    public FilterRegistrationBean<IpFilter> ipFilterRegistration(IpFilterProperty ipFilterProperty) {
+    public FilterRegistrationBean<IpFilter> ipFilterRegistration(IpFilterProperty ipFilterProperty,
+                                                                 IpBlacklistService ipBlacklistService) {
         FilterRegistrationBean<IpFilter> registration = new FilterRegistrationBean<>();
 
         // 由 FilterConfig 统一创建过滤器，避免与 @Component 自动注册重复
-        registration.setFilter(new IpFilter(ipFilterProperty));
+        registration.setFilter(new IpFilter(ipFilterProperty, ipBlacklistService));
 
         // 拦截所有请求，具体放行/拦截逻辑由 IpFilter 内部处理
         registration.addUrlPatterns("/*");

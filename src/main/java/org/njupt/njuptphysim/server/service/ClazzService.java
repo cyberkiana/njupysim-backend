@@ -4,12 +4,19 @@ import org.njupt.njuptphysim.pojo.dto.ClazzListDTO;
 import org.njupt.njuptphysim.pojo.po.Clazzes;
 import org.njupt.njuptphysim.pojo.po.Users;
 
+import java.time.Year;
 import java.util.List;
 
 public interface ClazzService {
 
 
-    void addClazz(Clazzes clazz);
+    /**
+     * 批量导入用：建班并挂教师（同一事务，任一步失败整体回滚）
+     * @param id 班级id
+     * @param createTime 年份，null 时取当前年
+     * @param teacherName 教师姓名，可为空（表示暂不指定教师）
+     */
+    void addClazzWithTeacher(String id, Year createTime, String teacherName);
 
     void deleteClazz(String id);
 
@@ -19,7 +26,7 @@ public interface ClazzService {
 
     int getTotalNum(String id, String createTime, String teacher);
 
-    List<Users> getStuFromClazz(String clazzId);
+    java.util.List<org.njupt.njuptphysim.pojo.vo.UserVO> getStuFromClazz(String clazzId);
 
     void deleteStuFromClazz(String clazzId, String stuId);
 
@@ -49,5 +56,5 @@ public interface ClazzService {
      * @param clazzId 班级id
      * @return List<Users>
      */
-    List<Users> getStusOfClazz(String clazzId);
+    java.util.List<org.njupt.njuptphysim.pojo.vo.UserVO> getStusOfClazz(String clazzId);
 }

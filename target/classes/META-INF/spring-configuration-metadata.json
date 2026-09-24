@@ -1,6 +1,11 @@
 {
   "groups": [
     {
+      "name": "avatar",
+      "type": "org.njupt.njuptphysim.common.properties.AvatarProperty",
+      "sourceType": "org.njupt.njuptphysim.common.properties.AvatarProperty"
+    },
+    {
       "name": "ip-filter",
       "type": "org.njupt.njuptphysim.common.properties.IpFilterProperty",
       "sourceType": "org.njupt.njuptphysim.common.properties.IpFilterProperty"
@@ -24,6 +29,27 @@
     }
   ],
   "properties": [
+    {
+      "name": "avatar.nginx-base-url",
+      "type": "java.lang.String",
+      "description": "nginx 所在地址（如 http:\/\/192.168.233.130），后端上传文件时的目标",
+      "sourceType": "org.njupt.njuptphysim.common.properties.AvatarProperty",
+      "defaultValue": "http:\/\/192.168.233.130"
+    },
+    {
+      "name": "avatar.static-path",
+      "type": "java.lang.String",
+      "description": "头像静态访问路径前缀（存入数据库的相对url前缀，由 nginx 静态服务或前端开发代理解析）",
+      "sourceType": "org.njupt.njuptphysim.common.properties.AvatarProperty",
+      "defaultValue": "\/avatar\/"
+    },
+    {
+      "name": "avatar.upload-path",
+      "type": "java.lang.String",
+      "description": "nginx WebDAV 上传路径（nginx 配置中对应 dav_methods PUT 的 location）",
+      "sourceType": "org.njupt.njuptphysim.common.properties.AvatarProperty",
+      "defaultValue": "\/_avatar_upload\/"
+    },
     {
       "name": "ip-filter.blacklist-ips",
       "type": "java.util.List<java.lang.String>",

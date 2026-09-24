@@ -28,7 +28,6 @@ public interface TaskService {
      */
     List<StuFinishedTaskDTO> getStuFinishedTask(String stuId);
 
-
     /**
      * controller入口
      * @param stuId 学生id
@@ -68,12 +67,27 @@ public interface TaskService {
     TasksInfoVO<StuCompletedListDTO, StuUncompletedListDTO> getBothStuList(String teaId, int taskId, String clazzId);
 
     /**
-     * 获取实验任务的具体数据
-     * @param teaId 教师id
-     * @param clazzId 班级id
-     * @param expId 实验id
-     * @return
+     * 按任务id查询任务详情（同一实验被多次布置时，各任务数据相互独立）
+     * @param taskId 任务id
+     * @return 任务详情
      */
-    Tasks getExperimentDetail(String teaId, String clazzId, int expId);
+    Tasks getTaskDetailById(int taskId);
+
+    /**
+     * 实时统计任务完成人数（以completions表为准）
+     * @param taskId 任务id
+     * @return 完成人数
+     */
+    int countTaskCompletions(int taskId);
+
+    /**
+     * 学生完成WebGL实验：写入completions表并累加任务完成人数。
+     * 同一学生同一任务仅记录一次；同一实验有多个任务时按截止日期最早优先。
+     * @param stuId 学生id
+     * @param expId 实验id
+     * @param score 成绩(0~100)，为空时默认100
+     * @return 完成的任务
+     */
+    Tasks completeTask(String stuId, int expId, Integer score);
 
 }

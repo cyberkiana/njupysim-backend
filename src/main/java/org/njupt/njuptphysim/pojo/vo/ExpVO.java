@@ -19,6 +19,9 @@ public class ExpVO implements Serializable {
 
     private String title;
 
+    /** 实验头图路径 */
+    private String coverImage;
+
     private String url;
 
     private Integer likes;

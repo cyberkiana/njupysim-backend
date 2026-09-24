@@ -1,6 +1,7 @@
 package org.njupt.njuptphysim.server.controller.common;
 
 import org.njupt.njuptphysim.pojo.Result;
+import org.njupt.njuptphysim.common.annotation.OperationLog;
 import org.njupt.njuptphysim.pojo.po.Reservations;
 import org.njupt.njuptphysim.server.service.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,7 @@ public class ReservationController {
      * @param day 日期
      * @return
      */
+    @OperationLog(value = "查询", detail = "查看某日预约时段信息")
     @GetMapping("/days/{day}")
     public Result searchReservationsByTime(@PathVariable LocalDate day){
         return Result.success(reservationService.searchReservationsByTime(day));

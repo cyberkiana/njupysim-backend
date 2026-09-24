@@ -27,8 +27,8 @@
             limit #{offset},#{pageSize}
     </select>
 
-    <select id="getStuFromClazz" resultType="Users">
-        select *
+    <select id="getStuFromClazz" resultType="org.njupt.njuptphysim.pojo.vo.UserVO">
+        select id, name, account, create_time, role_id, avatar, college
         from njupt_physim.users
         where id in (
             select user_id

@@ -3,9 +3,10 @@
 <mapper namespace="org.njupt.njuptphysim.server.mapper.ResourcesMapper">
 
     <select id="getClazzExpList" resultType="ExpListDTO">
-        select exp_id,title
+        select t.exp_id as expId, r.title
         from njupt_physim.tasks t
         left join njupt_physim.resources r on r.id = t.exp_id
+        where t.clazz_id = #{clazzId}
     </select>
 
 
@@ -13,13 +14,13 @@
         update njupt_physim.resources
         <set>
             <if test="likes != null">
-                likes = likes+1
+                likes = likes+1,
             </if>
             <if test="easyCount != null">
-                easy_count = easy_count+1
+                easy_count = easy_count+1,
             </if>
             <if test="hardCount != null">
-                hard_count = hard_count+1
+                hard_count = hard_count+1,
             </if>
         </set>
         where id = #{id}

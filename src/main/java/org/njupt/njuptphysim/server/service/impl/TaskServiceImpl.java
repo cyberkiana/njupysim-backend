@@ -1,5 +1,6 @@
 package org.njupt.njuptphysim.server.service.impl;
 
+import org.njupt.njuptphysim.common.exceptions.BaseException;
 import org.njupt.njuptphysim.pojo.dto.StuCompletedListDTO;
 import org.njupt.njuptphysim.pojo.dto.StuFinishedTaskDTO;
 import org.njupt.njuptphysim.pojo.dto.StuTaskInfoDTO;
@@ -52,8 +53,9 @@ public class TaskServiceImpl implements TaskService {
             stuTaskInfoDTO.setStartDate(tasks.getStartDate());
             stuTaskInfoDTO.setEndDate(tasks.getEndDate());
             Resources resource = resourcesService.getResourcesById(tasks.getExpId());
-            stuTaskInfoDTO.setTitle(resource.getTitle());
-            stuTaskInfoDTO.setContent(resource.getContent());
+            //实验资源可能已被删除, 兜底展示, 不让单个任务拖垮整个列表
+            stuTaskInfoDTO.setTitle(resource != null ? resource.getTitle() : "未知实验");
+            stuTaskInfoDTO.setContent(resource != null ? resource.getContent() : "");
             list.add(stuTaskInfoDTO);
         }
         return list;
@@ -64,11 +66,19 @@ public class TaskServiceImpl implements TaskService {
         List<StuFinishedTaskDTO> list = new ArrayList<>();
         List<Completions> finishedTask = taskMapper.getStuAllFinishedTask(stuId);
         for (Completions completions : finishedTask) {
+            //完成记录引用的任务可能已被删除, 跳过孤儿记录, 避免NPE导致整个列表查询失败
+            Integer expId = taskMapper.getExpIdById(completions.getTaskId());
+            if (expId == null) {
+                continue;
+            }
             StuFinishedTaskDTO sft = new StuFinishedTaskDTO();
             sft.setId(completions.getId());
             sft.setScore(completions.getScore());
             sft.setFinishDate(completions.getTime());
-            Resources resource = resourcesService.getResourcesById(taskMapper.getExpIdById(completions.getTaskId()));
+            Resources resource = resourcesService.getResourcesById(expId);
+            if (resource == null) {
+                continue;
+            }
             sft.setTitle(resource.getTitle());
             sft.setContent(resource.getContent());
             sft.setTeacher(taskMapper.getTeacherById(completions.getTaskId()));
@@ -76,7 +86,6 @@ public class TaskServiceImpl implements TaskService {
         }
         return list;
     }
-
 
     @Override
     public StuTaskInfoVO<StuFinishedTaskDTO, StuTaskInfoDTO> getStuBothExpList(String stuId) {
@@ -110,7 +119,17 @@ public class TaskServiceImpl implements TaskService {
 
     @Override
     public int deleteTask(String teaId, int taskId) {
+        //只有任务归属教师（按教师姓名匹配）才能删除
+        String taskTeacher = taskMapper.getTeacherById(taskId);
+        if (taskTeacher == null) {
+            throw new BaseException("任务不存在");
+        }
+        if (!taskTeacher.equals(userService.getNameById(teaId))) {
+            throw new BaseException("无权限删除其他教师的任务");
+        }
         taskMapper.deleteTask(taskId);
+        //一并清理该任务的完成记录，避免孤儿数据干扰统计
+        taskMapper.deleteCompletionsByTaskId(taskId);
         return 1;
     }
 
@@ -122,7 +141,7 @@ public class TaskServiceImpl implements TaskService {
         for (StuCompletedListDTO dto : completedList) {
             completedStuIdList.add(dto.getStuId());
         }
-        for (Users stuOfClazz : clazzService.getStusOfClazz(clazzId)) {
+        for (org.njupt.njuptphysim.pojo.vo.UserVO stuOfClazz : clazzService.getStusOfClazz(clazzId)) {
             if (!completedStuIdList.contains(stuOfClazz.getId())) {
                 uncompletedList.add(new StuUncompletedListDTO(stuOfClazz.getId(), stuOfClazz.getName()));
             }
@@ -131,7 +150,44 @@ public class TaskServiceImpl implements TaskService {
     }
 
     @Override
-    public Tasks getExperimentDetail(String teaId, String clazzId, int expId) {
-        return taskMapper.getExperimentDetail(teaId, clazzId, expId);
+    public Tasks completeTask(String stuId, int expId, Integer score) {
+        String clazzId = clazzService.getClazzOfStu(stuId);
+        if (clazzId == null) {
+            throw new BaseException("未找到学生所在班级");
+        }
+        int s = (score == null) ? 100 : score;
+        if (s < 0 || s > 100) {
+            throw new BaseException("成绩应在0~100之间");
+        }
+        //找该班级下同实验、该学生尚未完成的任务, 按截止日期最早优先
+        List<Tasks> candidates = new ArrayList<>();
+        for (Tasks t : taskMapper.getStuAllTask(clazzId)) {
+            if (t.getExpId() != null && t.getExpId() == expId
+                    && taskMapper.countCompletion(stuId, t.getId()) == 0) {
+                candidates.add(t);
+            }
+        }
+        if (candidates.isEmpty()) {
+            throw new BaseException("没有待完成的该实验任务（可能已完成或任务不存在）");
+        }
+        candidates.sort((a, b) -> a.getEndDate().compareTo(b.getEndDate()));
+        Tasks target = candidates.get(0);
+        taskMapper.insertCompletion(stuId, clazzId, target.getId(), s);
+        //完成人数由查询时实时统计(completions表)，不再维护tasks表快照计数
+        return target;
+    }
+
+    @Override
+    public Tasks getTaskDetailById(int taskId) {
+        Tasks task = taskMapper.getTaskById(taskId);
+        if (task == null) {
+            throw new BaseException("任务不存在");
+        }
+        return task;
+    }
+
+    @Override
+    public int countTaskCompletions(int taskId) {
+        return taskMapper.countTaskCompletions(taskId);
     }
 }

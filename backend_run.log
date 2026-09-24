@@ -1,0 +1,1775 @@
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v3.4.4)
+
+2026-09-23T09:09:38.330+08:00  INFO 17368 --- [NJUPTPhySim] [           main] o.n.njuptphysim.NjuptPhySimApplication   : Starting NjuptPhySimApplication v0.0.1-SNAPSHOT using Java 17.0.16 with PID 17368 (E:\bigchuang\javaSub\NJUPTPhySim-master\target\NJUPTPhySim-0.0.1-SNAPSHOT.jar started by 26684 in E:\bigchuang\javaSub\NJUPTPhySim-master)
+2026-09-23T09:09:38.342+08:00  INFO 17368 --- [NJUPTPhySim] [           main] o.n.njuptphysim.NjuptPhySimApplication   : The following 1 profile is active: "dev"
+2026-09-23T09:09:40.282+08:00  INFO 17368 --- [NJUPTPhySim] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Multiple Spring Data modules found, entering strict repository configuration mode
+2026-09-23T09:09:40.290+08:00  INFO 17368 --- [NJUPTPhySim] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2026-09-23T09:09:40.346+08:00  INFO 17368 --- [NJUPTPhySim] [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 22 ms. Found 0 Redis repository interfaces.
+2026-09-23T09:09:42.559+08:00  INFO 17368 --- [NJUPTPhySim] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8081 (http)
+2026-09-23T09:09:42.592+08:00  INFO 17368 --- [NJUPTPhySim] [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-09-23T09:09:42.592+08:00  INFO 17368 --- [NJUPTPhySim] [           main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.39]
+2026-09-23T09:09:42.701+08:00  INFO 17368 --- [NJUPTPhySim] [           main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-09-23T09:09:42.708+08:00  INFO 17368 --- [NJUPTPhySim] [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4235 ms
+Logging initialized using 'class org.apache.ibatis.logging.stdout.StdOutImpl' adapter.
+Can not find table primary key in Class: "org.njupt.njuptphysim.pojo.po.UserClass".
+2026-09-23T09:09:44.960+08:00  WARN 17368 --- [NJUPTPhySim] [           main] c.b.m.core.injector.DefaultSqlInjector   : class org.njupt.njuptphysim.pojo.po.UserClass ,Not found @TableId annotation, Cannot use Mybatis-Plus 'xxById' Method.
+Get /10.165.217.49 network interface 
+Get network interface info: name:wlan2 (Intel(R) Wi-Fi 6 AX201 160MHz)
+Initialization Sequence datacenterId:4 workerId:27
+ _ _   |_  _ _|_. ___ _ |    _ 
+| | |\/|_)(_| | |_\  |_)||_|_\ 
+     /               |         
+                        3.5.11 
+2026-09-23T09:09:45.648+08:00  INFO 17368 --- [NJUPTPhySim] [           main] o.n.njuptphysim.common.filters.IpFilter  : ========== IpFilter初始化完成 ==========
+2026-09-23T09:09:45.658+08:00  INFO 17368 --- [NJUPTPhySim] [           main] o.n.njuptphysim.common.filters.IpFilter  : IP过滤状态：已启用
+2026-09-23T09:09:45.658+08:00  INFO 17368 --- [NJUPTPhySim] [           main] o.n.njuptphysim.common.filters.IpFilter  : IP过滤模式：黑名单模式
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@485deee1] was not registered for synchronization because synchronization is not active
+2026-09-23T09:09:45.880+08:00  INFO 17368 --- [NJUPTPhySim] [           main] com.alibaba.druid.pool.DruidDataSource   : {dataSource-1} inited
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will not be managed by Spring
+==>  Preparing: select ip from njupt_physim.sys_ip_blacklist where status = 1
+==> Parameters: 
+<==      Total: 0
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@485deee1]
+2026-09-23T09:09:46.434+08:00  INFO 17368 --- [NJUPTPhySim] [           main] o.n.njuptphysim.common.filters.IpFilter  : 数据库黑名单IP列表：[]
+2026-09-23T09:09:46.441+08:00  INFO 17368 --- [NJUPTPhySim] [           main] o.n.njuptphysim.common.filters.IpFilter  : 白名单IP列表：[127.0.0.1, 192.168.1.0/24, 10.0.0.*]
+2026-09-23T09:09:46.441+08:00  INFO 17368 --- [NJUPTPhySim] [           main] o.n.njuptphysim.common.filters.IpFilter  : 排除URL列表：[/login, /register, /public/**, /actuator/**, /error]
+2026-09-23T09:09:46.441+08:00  INFO 17368 --- [NJUPTPhySim] [           main] o.n.njuptphysim.common.filters.IpFilter  : ==========================================
+2026-09-23T09:09:48.370+08:00  WARN 17368 --- [NJUPTPhySim] [           main] .s.s.UserDetailsServiceAutoConfiguration : 
+
+Using generated security password: bc8c0daa-15fc-4bc2-9fe5-1af5609dc89d
+
+This generated password is for development use only. Your security configuration must be updated before running your application in production.
+
+2026-09-23T09:09:48.558+08:00  INFO 17368 --- [NJUPTPhySim] [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name inMemoryUserDetailsManager
+2026-09-23T09:09:48.912+08:00  INFO 17368 --- [NJUPTPhySim] [           main] o.n.n.server.config.WebMvcConfiguration  : 开始注册拦截器...
+2026-09-23T09:09:48.912+08:00  INFO 17368 --- [NJUPTPhySim] [           main] o.n.n.server.config.WebMvcConfiguration  : 完成注册拦截器...
+2026-09-23T09:09:50.678+08:00  INFO 17368 --- [NJUPTPhySim] [           main] org.quartz.impl.StdSchedulerFactory      : Using default implementation for ThreadExecutor
+2026-09-23T09:09:50.757+08:00  INFO 17368 --- [NJUPTPhySim] [           main] org.quartz.core.SchedulerSignalerImpl    : Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+2026-09-23T09:09:50.757+08:00  INFO 17368 --- [NJUPTPhySim] [           main] org.quartz.core.QuartzScheduler          : Quartz Scheduler v.2.3.2 created.
+2026-09-23T09:09:50.762+08:00  INFO 17368 --- [NJUPTPhySim] [           main] org.quartz.simpl.RAMJobStore             : RAMJobStore initialized.
+2026-09-23T09:09:50.774+08:00  INFO 17368 --- [NJUPTPhySim] [           main] org.quartz.core.QuartzScheduler          : Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+2026-09-23T09:09:50.774+08:00  INFO 17368 --- [NJUPTPhySim] [           main] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+2026-09-23T09:09:50.774+08:00  INFO 17368 --- [NJUPTPhySim] [           main] org.quartz.impl.StdSchedulerFactory      : Quartz scheduler version: 2.3.2
+2026-09-23T09:09:50.774+08:00  INFO 17368 --- [NJUPTPhySim] [           main] org.quartz.core.QuartzScheduler          : JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@e1c91cd
+2026-09-23T09:09:51.010+08:00  INFO 17368 --- [NJUPTPhySim] [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8081 (http) with context path '/'
+2026-09-23T09:09:51.024+08:00  INFO 17368 --- [NJUPTPhySim] [           main] o.s.s.quartz.SchedulerFactoryBean        : Starting Quartz Scheduler now
+2026-09-23T09:09:51.024+08:00  INFO 17368 --- [NJUPTPhySim] [           main] org.quartz.core.QuartzScheduler          : Scheduler quartzScheduler_$_NON_CLUSTERED started.
+2026-09-23T09:09:51.087+08:00  INFO 17368 --- [NJUPTPhySim] [           main] o.n.njuptphysim.NjuptPhySimApplication   : Started NjuptPhySimApplication in 14.164 seconds (process running for 15.065)
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1add90e0] was not registered for synchronization because synchronization is not active
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will not be managed by Spring
+==>  Preparing: select count(*) from njupt_physim.reservations where day = ?
+==> Parameters: 2026-09-23(LocalDate)
+<==    Columns: count(*)
+<==        Row: 18
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1add90e0]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3506bc8b] was not registered for synchronization because synchronization is not active
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will not be managed by Spring
+==>  Preparing: select count(*) from njupt_physim.reservations where day = ?
+==> Parameters: 2026-09-24(LocalDate)
+<==    Columns: count(*)
+<==        Row: 18
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3506bc8b]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@368d51ca] was not registered for synchronization because synchronization is not active
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will not be managed by Spring
+==>  Preparing: select count(*) from njupt_physim.reservations where day = ?
+==> Parameters: 2026-09-25(LocalDate)
+<==    Columns: count(*)
+<==        Row: 18
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@368d51ca]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2ad6895a] was not registered for synchronization because synchronization is not active
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will not be managed by Spring
+==>  Preparing: select count(*) from njupt_physim.reservations where day = ?
+==> Parameters: 2026-09-26(LocalDate)
+<==    Columns: count(*)
+<==        Row: 18
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2ad6895a]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5d515e2c] was not registered for synchronization because synchronization is not active
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will not be managed by Spring
+==>  Preparing: select count(*) from njupt_physim.reservations where day = ?
+==> Parameters: 2026-09-27(LocalDate)
+<==    Columns: count(*)
+<==        Row: 18
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5d515e2c]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4d3a7f83] was not registered for synchronization because synchronization is not active
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will not be managed by Spring
+==>  Preparing: select count(*) from njupt_physim.reservations where day = ?
+==> Parameters: 2026-09-28(LocalDate)
+<==    Columns: count(*)
+<==        Row: 18
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4d3a7f83]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6956eb58] was not registered for synchronization because synchronization is not active
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will not be managed by Spring
+==>  Preparing: select count(*) from njupt_physim.reservations where day = ?
+==> Parameters: 2026-09-29(LocalDate)
+<==    Columns: count(*)
+<==        Row: 18
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6956eb58]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6127ef86] was not registered for synchronization because synchronization is not active
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will not be managed by Spring
+==>  Preparing: select count(*) from njupt_physim.reservations where day = ?
+==> Parameters: 2026-09-30(LocalDate)
+<==    Columns: count(*)
+<==        Row: 18
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6127ef86]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1e749235] was not registered for synchronization because synchronization is not active
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will not be managed by Spring
+==>  Preparing: select count(*) from njupt_physim.reservations where day = ?
+==> Parameters: 2026-10-01(LocalDate)
+<==    Columns: count(*)
+<==        Row: 18
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1e749235]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6c2e7591] was not registered for synchronization because synchronization is not active
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will not be managed by Spring
+==>  Preparing: select count(*) from njupt_physim.reservations where day = ?
+==> Parameters: 2026-10-02(LocalDate)
+<==    Columns: count(*)
+<==        Row: 18
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6c2e7591]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3dad8bde] was not registered for synchronization because synchronization is not active
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will not be managed by Spring
+==>  Preparing: select count(*) from njupt_physim.reservations where day = ?
+==> Parameters: 2026-10-03(LocalDate)
+<==    Columns: count(*)
+<==        Row: 18
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3dad8bde]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2f82e3cf] was not registered for synchronization because synchronization is not active
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will not be managed by Spring
+==>  Preparing: select count(*) from njupt_physim.reservations where day = ?
+==> Parameters: 2026-10-04(LocalDate)
+<==    Columns: count(*)
+<==        Row: 18
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2f82e3cf]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6b6606d1] was not registered for synchronization because synchronization is not active
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will not be managed by Spring
+==>  Preparing: select count(*) from njupt_physim.reservations where day = ?
+==> Parameters: 2026-10-05(LocalDate)
+<==    Columns: count(*)
+<==        Row: 18
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6b6606d1]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1fc4483f] was not registered for synchronization because synchronization is not active
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will not be managed by Spring
+==>  Preparing: select count(*) from njupt_physim.reservations where day = ?
+==> Parameters: 2026-10-06(LocalDate)
+<==    Columns: count(*)
+<==        Row: 18
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1fc4483f]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5adc71e7] was not registered for synchronization because synchronization is not active
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will not be managed by Spring
+==>  Preparing: select count(*) from njupt_physim.reservations where day = ?
+==> Parameters: 2026-10-07(LocalDate)
+<==    Columns: count(*)
+<==        Row: 18
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5adc71e7]
+2026-09-23T09:09:51.203+08:00  INFO 17368 --- [NJUPTPhySim] [           main] o.n.n.s.t.ReservationStartupInitializer  : [定时任务] 启动补漏检查通过：今天~今天+14 的预约时段均完整
+幸运数字是：83
+2026-09-23T09:09:51.205+08:00  INFO 17368 --- [NJUPTPhySim] [           main] o.n.njuptphysim.NjuptPhySimApplication   : server started
+2026-09-23T09:10:28.952+08:00  INFO 17368 --- [NJUPTPhySim] [nio-8081-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-09-23T09:10:28.953+08:00  INFO 17368 --- [NJUPTPhySim] [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-09-23T09:10:28.955+08:00  INFO 17368 --- [NJUPTPhySim] [nio-8081-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5b93497a] was not registered for synchronization because synchronization is not active
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will not be managed by Spring
+==>  Preparing: select ip from njupt_physim.sys_ip_blacklist where status = 1
+==> Parameters: 
+<==      Total: 0
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5b93497a]
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@62862d85]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will be managed by Spring
+==>  Preparing: select * from njupt_physim.users where account = ? and password = ?
+==> Parameters: LS001(String), 123456(String)
+<==    Columns: id, name, account, password, create_time, role_id, avatar, college
+<==        Row: LS001, 王增旭, LS001, 123456, 2025-08-02, 2, , 
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@62862d85]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@62862d85] from current transaction
+==>  Preparing: select user_id from njupt_physim.sys_user_ban where status = 1
+==> Parameters: 
+<==      Total: 0
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@62862d85]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@62862d85] from current transaction
+==>  Preparing: select name from njupt_physim.roles where id = ?
+==> Parameters: 2(Integer)
+<==    Columns: name
+<==        Row: teacher
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@62862d85]
+Transaction synchronization suspending SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@62862d85]
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@568e1a6c]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@717a67c4] will be managed by Spring
+==>  Preparing: insert into njupt_physim.sys_log_login (operation, status, creator_name, create_date) values (?, ?, ?, ?)
+==> Parameters: 0(Integer), 1(Integer), LS001(String), 2026-09-23T09:10:30.314780700(LocalDateTime)
+<==    Updates: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@568e1a6c]
+2026-09-23T09:10:30.323+08:00  INFO 17368 --- [NJUPTPhySim] [nio-8081-exec-1] o.n.n.s.service.impl.LogServiceImpl      : [登录日志] 用户[LS001] 于2026-09-23 09:10:30 登录成功
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@568e1a6c]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@568e1a6c]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@568e1a6c]
+Transaction synchronization resuming SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@62862d85]
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@62862d85]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@62862d85]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@62862d85]
+2026-09-23T09:10:30.492+08:00  INFO 17368 --- [NJUPTPhySim] [nio-8081-exec-3] o.n.n.c.Interceptors.LoginInterceptor    : 请求路径: /tea/LS001/tasks
+2026-09-23T09:10:30.493+08:00  INFO 17368 --- [NJUPTPhySim] [nio-8081-exec-3] o.n.n.c.Interceptors.LoginInterceptor    : token:eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3OTAxMjU4MzAsImV4cCI6MTc5MDE2MTgzMCwiaWQiOiJMUzAwMSJ9.nT-jLsbJC13-56iwYMDsk7ZmUxptqIq-Zy-1WBK9bJo
+2026-09-23T09:10:30.567+08:00  INFO 17368 --- [NJUPTPhySim] [nio-8081-exec-3] o.n.n.c.Interceptors.LoginInterceptor    : 令牌合法, 放行
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3b66091b]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will be managed by Spring
+==>  Preparing: SELECT id,name,account,password,create_time,role_id,avatar,college FROM users WHERE id=?
+==> Parameters: LS001(String)
+<==    Columns: id, name, account, password, create_time, role_id, avatar, college
+<==        Row: LS001, 王增旭, LS001, 123456, 2025-08-02, 2, , 
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3b66091b]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3b66091b] from current transaction
+==>  Preparing: select name from njupt_physim.roles where id = ?
+==> Parameters: 2(Integer)
+<==    Columns: name
+<==        Row: teacher
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3b66091b]
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3b66091b]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3b66091b]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3b66091b]
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1f42578e]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will be managed by Spring
+==>  Preparing: SELECT id,name,account,password,create_time,role_id,avatar,college FROM users WHERE id=?
+==> Parameters: LS001(String)
+<==    Columns: id, name, account, password, create_time, role_id, avatar, college
+<==        Row: LS001, 王增旭, LS001, 123456, 2025-08-02, 2, , 
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1f42578e]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1f42578e] from current transaction
+==>  Preparing: select t.id, t.clazz_id, t.exp_id, t.start_date, t.end_date, (select count(*) from njupt_physim.completions c where c.task_id = t.id) as complete_count, (select count(*) from njupt_physim.user_clazz uc where uc.clazz_id = t.clazz_id and uc.role_id = 3) as total_count from njupt_physim.tasks t where t.teacher = ?
+==> Parameters: 王增旭(String)
+<==    Columns: id, clazz_id, exp_id, start_date, end_date, complete_count, total_count
+<==        Row: 4, B220601, 1, 2026-03-11, 2026-03-24, 1, 2
+<==        Row: 5, B220601, 2, 2026-03-20, 2026-03-26, 1, 2
+<==        Row: 12, B220601, 3, 2026-09-15, 2026-09-29, 2, 2
+<==      Total: 3
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1f42578e]
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1f42578e]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1f42578e]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1f42578e]
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@49ba3e91]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will be managed by Spring
+==>  Preparing: SELECT id,name,account,password,create_time,role_id,avatar,college FROM users WHERE id=?
+==> Parameters: LS001(String)
+<==    Columns: id, name, account, password, create_time, role_id, avatar, college
+<==        Row: LS001, 王增旭, LS001, 123456, 2025-08-02, 2, , 
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@49ba3e91]
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@49ba3e91]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@49ba3e91]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@49ba3e91]
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@46a508aa]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will be managed by Spring
+==>  Preparing: insert into njupt_physim.sys_log_operation (operation, request_uri, request_method, request_params, request_time, ip, status, creator_name, creator, type, create_date) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+==> Parameters: 查询:查看教师任务列表(String), /tea/LS001/tasks(String), GET(String), ["LS001"](String), 15(Integer), 127.0.0.1(String), 1(Integer), 王增旭(String), LS001(String), 1(String), 2026-09-23T09:10:30.595277(LocalDateTime)
+<==    Updates: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@46a508aa]
+2026-09-23T09:10:30.633+08:00  INFO 17368 --- [NJUPTPhySim] [nio-8081-exec-3] o.n.n.s.service.impl.LogServiceImpl      : [操作日志] 用户[王增旭] 于2026-09-23 09:10:30 执行了【查询:查看教师任务列表】(类型：业务事件，URI：GET /tea/LS001/tasks，耗时：15ms，结果：成功)
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@46a508aa]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@46a508aa]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@46a508aa]
+2026-09-23T09:10:30.739+08:00  INFO 17368 --- [NJUPTPhySim] [nio-8081-exec-4] o.n.n.c.Interceptors.LoginInterceptor    : 请求路径: /tea/LS001/tasks/4/detail
+2026-09-23T09:10:30.739+08:00  INFO 17368 --- [NJUPTPhySim] [nio-8081-exec-4] o.n.n.c.Interceptors.LoginInterceptor    : token:eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3OTAxMjU4MzAsImV4cCI6MTc5MDE2MTgzMCwiaWQiOiJMUzAwMSJ9.nT-jLsbJC13-56iwYMDsk7ZmUxptqIq-Zy-1WBK9bJo
+2026-09-23T09:10:30.741+08:00  INFO 17368 --- [NJUPTPhySim] [nio-8081-exec-4] o.n.n.c.Interceptors.LoginInterceptor    : 令牌合法, 放行
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4cf48ea8]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will be managed by Spring
+==>  Preparing: SELECT id,name,account,password,create_time,role_id,avatar,college FROM users WHERE id=?
+==> Parameters: LS001(String)
+<==    Columns: id, name, account, password, create_time, role_id, avatar, college
+<==        Row: LS001, 王增旭, LS001, 123456, 2025-08-02, 2, , 
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4cf48ea8]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4cf48ea8] from current transaction
+==>  Preparing: select name from njupt_physim.roles where id = ?
+==> Parameters: 2(Integer)
+<==    Columns: name
+<==        Row: teacher
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4cf48ea8]
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4cf48ea8]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4cf48ea8]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4cf48ea8]
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@134410ac]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will be managed by Spring
+==>  Preparing: select id, teacher, clazz_id, exp_id, start_date, end_date, complete_count, total_count from njupt_physim.tasks where id = ?
+==> Parameters: 4(Integer)
+<==    Columns: id, teacher, clazz_id, exp_id, start_date, end_date, complete_count, total_count
+<==        Row: 4, 王增旭, B220601, 1, 2026-03-11, 2026-03-24, 2, 2
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@134410ac]
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@134410ac]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@134410ac]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@134410ac]
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3b32683e]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will be managed by Spring
+==>  Preparing: select * from njupt_physim.resources where id=?
+==> Parameters: 1(Integer)
+<==    Columns: id, title, create_time, creater_id, coverImage, url, tag, content, likes, easy_count, hard_count
+<==        Row: 1, 串联与并联电路, 2026-03-17, LS001, /img/20260922114412_cover.png, , 电学, 搭建虚拟电路，探究串并联电路电流电压规律, 3, 1, 1
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3b32683e]
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3b32683e]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3b32683e]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3b32683e]
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@695046f7]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will be managed by Spring
+==>  Preparing: select count(*) from njupt_physim.completions where task_id = ?
+==> Parameters: 4(Integer)
+<==    Columns: count(*)
+<==        Row: 1
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@695046f7]
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@695046f7]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@695046f7]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@695046f7]
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@50dc1ae7]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will be managed by Spring
+==>  Preparing: select count(*) from njupt_physim.user_clazz where clazz_id=? and role_id=3
+==> Parameters: B220601(String)
+<==    Columns: count(*)
+<==        Row: 2
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@50dc1ae7]
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@50dc1ae7]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@50dc1ae7]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@50dc1ae7]
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@67a43836]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will be managed by Spring
+==>  Preparing: SELECT id,name,account,password,create_time,role_id,avatar,college FROM users WHERE id=?
+==> Parameters: LS001(String)
+<==    Columns: id, name, account, password, create_time, role_id, avatar, college
+<==        Row: LS001, 王增旭, LS001, 123456, 2025-08-02, 2, , 
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@67a43836]
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@67a43836]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@67a43836]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@67a43836]
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6c0b8a25]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will be managed by Spring
+==>  Preparing: insert into njupt_physim.sys_log_operation (operation, request_uri, request_method, request_params, request_time, ip, status, creator_name, creator, type, create_date) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+==> Parameters: 查询:按任务id查看实验任务数据(String), /tea/LS001/tasks/4/detail(String), GET(String), ["LS001",4](String), 40(Integer), 127.0.0.1(String), 1(Integer), 王增旭(String), LS001(String), 1(String), 2026-09-23T09:10:30.751579300(LocalDateTime)
+<==    Updates: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6c0b8a25]
+2026-09-23T09:10:30.826+08:00  INFO 17368 --- [NJUPTPhySim] [nio-8081-exec-4] o.n.n.s.service.impl.LogServiceImpl      : [操作日志] 用户[王增旭] 于2026-09-23 09:10:30 执行了【查询:按任务id查看实验任务数据】(类型：业务事件，URI：GET /tea/LS001/tasks/4/detail，耗时：40ms，结果：成功)
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6c0b8a25]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6c0b8a25]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6c0b8a25]
+2026-09-23T09:10:30.978+08:00  INFO 17368 --- [NJUPTPhySim] [nio-8081-exec-6] o.n.n.c.Interceptors.LoginInterceptor    : 请求路径: /tea/LS001/tasks/5/detail
+2026-09-23T09:10:30.979+08:00  INFO 17368 --- [NJUPTPhySim] [nio-8081-exec-6] o.n.n.c.Interceptors.LoginInterceptor    : token:eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3OTAxMjU4MzAsImV4cCI6MTc5MDE2MTgzMCwiaWQiOiJMUzAwMSJ9.nT-jLsbJC13-56iwYMDsk7ZmUxptqIq-Zy-1WBK9bJo
+2026-09-23T09:10:30.980+08:00  INFO 17368 --- [NJUPTPhySim] [nio-8081-exec-6] o.n.n.c.Interceptors.LoginInterceptor    : 令牌合法, 放行
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5c0eddb3]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will be managed by Spring
+==>  Preparing: SELECT id,name,account,password,create_time,role_id,avatar,college FROM users WHERE id=?
+==> Parameters: LS001(String)
+<==    Columns: id, name, account, password, create_time, role_id, avatar, college
+<==        Row: LS001, 王增旭, LS001, 123456, 2025-08-02, 2, , 
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5c0eddb3]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5c0eddb3] from current transaction
+==>  Preparing: select name from njupt_physim.roles where id = ?
+==> Parameters: 2(Integer)
+<==    Columns: name
+<==        Row: teacher
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5c0eddb3]
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5c0eddb3]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5c0eddb3]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5c0eddb3]
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@410e5894]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will be managed by Spring
+==>  Preparing: select id, teacher, clazz_id, exp_id, start_date, end_date, complete_count, total_count from njupt_physim.tasks where id = ?
+==> Parameters: 5(Integer)
+<==    Columns: id, teacher, clazz_id, exp_id, start_date, end_date, complete_count, total_count
+<==        Row: 5, 王增旭, B220601, 2, 2026-03-20, 2026-03-26, 1, 2
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@410e5894]
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@410e5894]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@410e5894]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@410e5894]
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@69f3a91c]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will be managed by Spring
+==>  Preparing: select * from njupt_physim.resources where id=?
+==> Parameters: 2(Integer)
+<==    Columns: id, title, create_time, creater_id, coverImage, url, tag, content, likes, easy_count, hard_count
+<==        Row: 2, 光的折射与反射, 2026-03-17, LS001, , , 光学, 模拟光线在不同介质中的传播，验证折射定律, 2, 3, 2
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@69f3a91c]
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@69f3a91c]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@69f3a91c]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@69f3a91c]
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@77ac32c3]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will be managed by Spring
+==>  Preparing: select count(*) from njupt_physim.completions where task_id = ?
+==> Parameters: 5(Integer)
+<==    Columns: count(*)
+<==        Row: 1
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@77ac32c3]
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@77ac32c3]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@77ac32c3]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@77ac32c3]
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5b2e20b2]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will be managed by Spring
+==>  Preparing: select count(*) from njupt_physim.user_clazz where clazz_id=? and role_id=3
+==> Parameters: B220601(String)
+<==    Columns: count(*)
+<==        Row: 2
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5b2e20b2]
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5b2e20b2]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5b2e20b2]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5b2e20b2]
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@cd2679a]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will be managed by Spring
+==>  Preparing: SELECT id,name,account,password,create_time,role_id,avatar,college FROM users WHERE id=?
+==> Parameters: LS001(String)
+<==    Columns: id, name, account, password, create_time, role_id, avatar, college
+<==        Row: LS001, 王增旭, LS001, 123456, 2025-08-02, 2, , 
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@cd2679a]
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@cd2679a]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@cd2679a]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@cd2679a]
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@51fefbb]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will be managed by Spring
+==>  Preparing: insert into njupt_physim.sys_log_operation (operation, request_uri, request_method, request_params, request_time, ip, status, creator_name, creator, type, create_date) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+==> Parameters: 查询:按任务id查看实验任务数据(String), /tea/LS001/tasks/5/detail(String), GET(String), ["LS001",5](String), 20(Integer), 127.0.0.1(String), 1(Integer), 王增旭(String), LS001(String), 1(String), 2026-09-23T09:10:30.988850800(LocalDateTime)
+<==    Updates: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@51fefbb]
+2026-09-23T09:10:31.016+08:00  INFO 17368 --- [NJUPTPhySim] [nio-8081-exec-6] o.n.n.s.service.impl.LogServiceImpl      : [操作日志] 用户[王增旭] 于2026-09-23 09:10:30 执行了【查询:按任务id查看实验任务数据】(类型：业务事件，URI：GET /tea/LS001/tasks/5/detail，耗时：20ms，结果：成功)
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@51fefbb]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@51fefbb]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@51fefbb]
+2026-09-23T09:10:31.188+08:00  INFO 17368 --- [NJUPTPhySim] [nio-8081-exec-8] o.n.n.c.Interceptors.LoginInterceptor    : 请求路径: /tea/LS001/tasks/12/detail
+2026-09-23T09:10:31.189+08:00  INFO 17368 --- [NJUPTPhySim] [nio-8081-exec-8] o.n.n.c.Interceptors.LoginInterceptor    : token:eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3OTAxMjU4MzAsImV4cCI6MTc5MDE2MTgzMCwiaWQiOiJMUzAwMSJ9.nT-jLsbJC13-56iwYMDsk7ZmUxptqIq-Zy-1WBK9bJo
+2026-09-23T09:10:31.190+08:00  INFO 17368 --- [NJUPTPhySim] [nio-8081-exec-8] o.n.n.c.Interceptors.LoginInterceptor    : 令牌合法, 放行
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@68b134bb]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will be managed by Spring
+==>  Preparing: SELECT id,name,account,password,create_time,role_id,avatar,college FROM users WHERE id=?
+==> Parameters: LS001(String)
+<==    Columns: id, name, account, password, create_time, role_id, avatar, college
+<==        Row: LS001, 王增旭, LS001, 123456, 2025-08-02, 2, , 
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@68b134bb]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@68b134bb] from current transaction
+==>  Preparing: select name from njupt_physim.roles where id = ?
+==> Parameters: 2(Integer)
+<==    Columns: name
+<==        Row: teacher
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@68b134bb]
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@68b134bb]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@68b134bb]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@68b134bb]
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7d21b514]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will be managed by Spring
+==>  Preparing: select id, teacher, clazz_id, exp_id, start_date, end_date, complete_count, total_count from njupt_physim.tasks where id = ?
+==> Parameters: 12(Integer)
+<==    Columns: id, teacher, clazz_id, exp_id, start_date, end_date, complete_count, total_count
+<==        Row: 12, 王增旭, B220601, 3, 2026-09-15, 2026-09-29, 1, 2
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7d21b514]
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7d21b514]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7d21b514]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7d21b514]
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@16dcc34b]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will be managed by Spring
+==>  Preparing: select * from njupt_physim.resources where id=?
+==> Parameters: 3(Integer)
+<==    Columns: id, title, create_time, creater_id, coverImage, url, tag, content, likes, easy_count, hard_count
+<==        Row: 3, 声波干涉与共鸣, 2026-03-17, LS001, , , 声学, 观察声波的叠加与干涉现象，理解波的叠加原理, 0, 0, 0
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@16dcc34b]
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@16dcc34b]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@16dcc34b]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@16dcc34b]
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@62a93a1f]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will be managed by Spring
+==>  Preparing: select count(*) from njupt_physim.completions where task_id = ?
+==> Parameters: 12(Integer)
+<==    Columns: count(*)
+<==        Row: 2
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@62a93a1f]
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@62a93a1f]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@62a93a1f]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@62a93a1f]
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@9b884c]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will be managed by Spring
+==>  Preparing: select count(*) from njupt_physim.user_clazz where clazz_id=? and role_id=3
+==> Parameters: B220601(String)
+<==    Columns: count(*)
+<==        Row: 2
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@9b884c]
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@9b884c]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@9b884c]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@9b884c]
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4f587d16]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will be managed by Spring
+==>  Preparing: SELECT id,name,account,password,create_time,role_id,avatar,college FROM users WHERE id=?
+==> Parameters: LS001(String)
+<==    Columns: id, name, account, password, create_time, role_id, avatar, college
+<==        Row: LS001, 王增旭, LS001, 123456, 2025-08-02, 2, , 
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4f587d16]
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4f587d16]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4f587d16]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4f587d16]
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2927b4fa]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will be managed by Spring
+==>  Preparing: insert into njupt_physim.sys_log_operation (operation, request_uri, request_method, request_params, request_time, ip, status, creator_name, creator, type, create_date) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+==> Parameters: 查询:按任务id查看实验任务数据(String), /tea/LS001/tasks/12/detail(String), GET(String), ["LS001",12](String), 21(Integer), 127.0.0.1(String), 1(Integer), 王增旭(String), LS001(String), 1(String), 2026-09-23T09:10:31.201714800(LocalDateTime)
+<==    Updates: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2927b4fa]
+2026-09-23T09:10:31.231+08:00  INFO 17368 --- [NJUPTPhySim] [nio-8081-exec-8] o.n.n.s.service.impl.LogServiceImpl      : [操作日志] 用户[王增旭] 于2026-09-23 09:10:31 执行了【查询:按任务id查看实验任务数据】(类型：业务事件，URI：GET /tea/LS001/tasks/12/detail，耗时：21ms，结果：成功)
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2927b4fa]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2927b4fa]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2927b4fa]
+2026-09-23T09:10:31.418+08:00  INFO 17368 --- [NJUPTPhySim] [io-8081-exec-10] o.n.n.c.Interceptors.LoginInterceptor    : 请求路径: /tea/LS001/tasks/4/clazzed/B220601/stu
+2026-09-23T09:10:31.418+08:00  INFO 17368 --- [NJUPTPhySim] [io-8081-exec-10] o.n.n.c.Interceptors.LoginInterceptor    : token:eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3OTAxMjU4MzAsImV4cCI6MTc5MDE2MTgzMCwiaWQiOiJMUzAwMSJ9.nT-jLsbJC13-56iwYMDsk7ZmUxptqIq-Zy-1WBK9bJo
+2026-09-23T09:10:31.419+08:00  INFO 17368 --- [NJUPTPhySim] [io-8081-exec-10] o.n.n.c.Interceptors.LoginInterceptor    : 令牌合法, 放行
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1846cb83]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will be managed by Spring
+==>  Preparing: SELECT id,name,account,password,create_time,role_id,avatar,college FROM users WHERE id=?
+==> Parameters: LS001(String)
+<==    Columns: id, name, account, password, create_time, role_id, avatar, college
+<==        Row: LS001, 王增旭, LS001, 123456, 2025-08-02, 2, , 
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1846cb83]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1846cb83] from current transaction
+==>  Preparing: select name from njupt_physim.roles where id = ?
+==> Parameters: 2(Integer)
+<==    Columns: name
+<==        Row: teacher
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1846cb83]
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1846cb83]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1846cb83]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1846cb83]
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1ffa54c]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will be managed by Spring
+==>  Preparing: select c.id as id, stu_id, score, u.name as stuName from njupt_physim.completions c left join njupt_physim.users u on c.stu_id=u.id where task_id=? and clazz_id=?
+==> Parameters: 4(Integer), B220601(String)
+<==    Columns: id, stu_id, score, stuName
+<==        Row: 3, B22060101, 100, 李斯
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1ffa54c]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1ffa54c] from current transaction
+==>  Preparing: select id, name, account, create_time, role_id, avatar, college from njupt_physim.users where id in (select user_id from njupt_physim.user_clazz where clazz_id=? and user_clazz.role_id=3 )
+==> Parameters: B220601(String)
+<==    Columns: id, name, account, create_time, role_id, avatar, college
+<==        Row: B22060101, 李斯, B22060101, 2026-02-08, 3, , 
+<==        Row: B22060105, 张丽丽, B22060105, 2025-08-02, 3, , 
+<==      Total: 2
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1ffa54c]
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1ffa54c]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1ffa54c]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1ffa54c]
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4d73d782]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will be managed by Spring
+==>  Preparing: SELECT id,name,account,password,create_time,role_id,avatar,college FROM users WHERE id=?
+==> Parameters: LS001(String)
+<==    Columns: id, name, account, password, create_time, role_id, avatar, college
+<==        Row: LS001, 王增旭, LS001, 123456, 2025-08-02, 2, , 
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4d73d782]
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4d73d782]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4d73d782]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4d73d782]
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@26cb61ce]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will be managed by Spring
+==>  Preparing: insert into njupt_physim.sys_log_operation (operation, request_uri, request_method, request_params, request_time, ip, status, creator_name, creator, type, create_date) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+==> Parameters: 查询:查看学生任务完成情况(String), /tea/LS001/tasks/4/clazzed/B220601/stu(String), GET(String), ["LS001",4,"B220601"](String), 12(Integer), 127.0.0.1(String), 1(Integer), 王增旭(String), LS001(String), 1(String), 2026-09-23T09:10:31.429301900(LocalDateTime)
+<==    Updates: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@26cb61ce]
+2026-09-23T09:10:31.450+08:00  INFO 17368 --- [NJUPTPhySim] [io-8081-exec-10] o.n.n.s.service.impl.LogServiceImpl      : [操作日志] 用户[王增旭] 于2026-09-23 09:10:31 执行了【查询:查看学生任务完成情况】(类型：业务事件，URI：GET /tea/LS001/tasks/4/clazzed/B220601/stu，耗时：12ms，结果：成功)
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@26cb61ce]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@26cb61ce]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@26cb61ce]
+2026-09-23T09:10:31.623+08:00  INFO 17368 --- [NJUPTPhySim] [nio-8081-exec-2] o.n.n.c.Interceptors.LoginInterceptor    : 请求路径: /tea/LS001/tasks/12/clazzed/B220601/stu
+2026-09-23T09:10:31.624+08:00  INFO 17368 --- [NJUPTPhySim] [nio-8081-exec-2] o.n.n.c.Interceptors.LoginInterceptor    : token:eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3OTAxMjU4MzAsImV4cCI6MTc5MDE2MTgzMCwiaWQiOiJMUzAwMSJ9.nT-jLsbJC13-56iwYMDsk7ZmUxptqIq-Zy-1WBK9bJo
+2026-09-23T09:10:31.625+08:00  INFO 17368 --- [NJUPTPhySim] [nio-8081-exec-2] o.n.n.c.Interceptors.LoginInterceptor    : 令牌合法, 放行
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@389a2e00]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will be managed by Spring
+==>  Preparing: SELECT id,name,account,password,create_time,role_id,avatar,college FROM users WHERE id=?
+==> Parameters: LS001(String)
+<==    Columns: id, name, account, password, create_time, role_id, avatar, college
+<==        Row: LS001, 王增旭, LS001, 123456, 2025-08-02, 2, , 
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@389a2e00]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@389a2e00] from current transaction
+==>  Preparing: select name from njupt_physim.roles where id = ?
+==> Parameters: 2(Integer)
+<==    Columns: name
+<==        Row: teacher
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@389a2e00]
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@389a2e00]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@389a2e00]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@389a2e00]
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1ee3079a]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will be managed by Spring
+==>  Preparing: select c.id as id, stu_id, score, u.name as stuName from njupt_physim.completions c left join njupt_physim.users u on c.stu_id=u.id where task_id=? and clazz_id=?
+==> Parameters: 12(Integer), B220601(String)
+<==    Columns: id, stu_id, score, stuName
+<==        Row: 2, B22060101, 95, 李斯
+<==        Row: 6, B22060105, 100, 张丽丽
+<==      Total: 2
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1ee3079a]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1ee3079a] from current transaction
+==>  Preparing: select id, name, account, create_time, role_id, avatar, college from njupt_physim.users where id in (select user_id from njupt_physim.user_clazz where clazz_id=? and user_clazz.role_id=3 )
+==> Parameters: B220601(String)
+<==    Columns: id, name, account, create_time, role_id, avatar, college
+<==        Row: B22060101, 李斯, B22060101, 2026-02-08, 3, , 
+<==        Row: B22060105, 张丽丽, B22060105, 2025-08-02, 3, , 
+<==      Total: 2
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1ee3079a]
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1ee3079a]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1ee3079a]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1ee3079a]
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@119628b3]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will be managed by Spring
+==>  Preparing: SELECT id,name,account,password,create_time,role_id,avatar,college FROM users WHERE id=?
+==> Parameters: LS001(String)
+<==    Columns: id, name, account, password, create_time, role_id, avatar, college
+<==        Row: LS001, 王增旭, LS001, 123456, 2025-08-02, 2, , 
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@119628b3]
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@119628b3]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@119628b3]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@119628b3]
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1301c9e1]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will be managed by Spring
+==>  Preparing: insert into njupt_physim.sys_log_operation (operation, request_uri, request_method, request_params, request_time, ip, status, creator_name, creator, type, create_date) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+==> Parameters: 查询:查看学生任务完成情况(String), /tea/LS001/tasks/12/clazzed/B220601/stu(String), GET(String), ["LS001",12,"B220601"](String), 10(Integer), 127.0.0.1(String), 1(Integer), 王增旭(String), LS001(String), 1(String), 2026-09-23T09:10:31.632825(LocalDateTime)
+<==    Updates: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1301c9e1]
+2026-09-23T09:10:31.651+08:00  INFO 17368 --- [NJUPTPhySim] [nio-8081-exec-2] o.n.n.s.service.impl.LogServiceImpl      : [操作日志] 用户[王增旭] 于2026-09-23 09:10:31 执行了【查询:查看学生任务完成情况】(类型：业务事件，URI：GET /tea/LS001/tasks/12/clazzed/B220601/stu，耗时：10ms，结果：成功)
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1301c9e1]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1301c9e1]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1301c9e1]
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@488fbca1]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will be managed by Spring
+==>  Preparing: select * from njupt_physim.users where account = ? and password = ?
+==> Parameters: B22060105(String), 123456(String)
+<==    Columns: id, name, account, password, create_time, role_id, avatar, college
+<==        Row: B22060105, 张丽丽, B22060105, 123456, 2025-08-02, 3, , 
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@488fbca1]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@488fbca1] from current transaction
+==>  Preparing: select name from njupt_physim.roles where id = ?
+==> Parameters: 3(Integer)
+<==    Columns: name
+<==        Row: student
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@488fbca1]
+Transaction synchronization suspending SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@488fbca1]
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@16770bab]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@717a67c4] will be managed by Spring
+==>  Preparing: insert into njupt_physim.sys_log_login (operation, status, creator_name, create_date) values (?, ?, ?, ?)
+==> Parameters: 0(Integer), 1(Integer), B22060105(String), 2026-09-23T09:10:54.039047800(LocalDateTime)
+<==    Updates: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@16770bab]
+2026-09-23T09:10:54.042+08:00  INFO 17368 --- [NJUPTPhySim] [nio-8081-exec-4] o.n.n.s.service.impl.LogServiceImpl      : [登录日志] 用户[B22060105] 于2026-09-23 09:10:54 登录成功
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@16770bab]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@16770bab]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@16770bab]
+Transaction synchronization resuming SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@488fbca1]
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@488fbca1]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@488fbca1]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@488fbca1]
+2026-09-23T09:10:54.261+08:00  INFO 17368 --- [NJUPTPhySim] [nio-8081-exec-6] o.n.n.c.Interceptors.LoginInterceptor    : 请求路径: /stu/B22060105/tasks/complete
+2026-09-23T09:10:54.263+08:00  INFO 17368 --- [NJUPTPhySim] [nio-8081-exec-6] o.n.n.c.Interceptors.LoginInterceptor    : token:eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3OTAxMjU4NTQsImV4cCI6MTc5MDE2MTg1NCwiaWQiOiJCMjIwNjAxMDUifQ.f8x3TzAYwGjcmknLKbi30v1hoCdstise7Jj3T3CHGt4
+2026-09-23T09:10:54.264+08:00  INFO 17368 --- [NJUPTPhySim] [nio-8081-exec-6] o.n.n.c.Interceptors.LoginInterceptor    : 令牌合法, 放行
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@30912e4e]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will be managed by Spring
+==>  Preparing: SELECT id,name,account,password,create_time,role_id,avatar,college FROM users WHERE id=?
+==> Parameters: B22060105(String)
+<==    Columns: id, name, account, password, create_time, role_id, avatar, college
+<==        Row: B22060105, 张丽丽, B22060105, 123456, 2025-08-02, 3, , 
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@30912e4e]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@30912e4e] from current transaction
+==>  Preparing: select name from njupt_physim.roles where id = ?
+==> Parameters: 3(Integer)
+<==    Columns: name
+<==        Row: student
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@30912e4e]
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@30912e4e]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@30912e4e]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@30912e4e]
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6eff50d7]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will be managed by Spring
+==>  Preparing: select clazz_id from njupt_physim.user_clazz where user_id=?
+==> Parameters: B22060105(String)
+<==    Columns: clazz_id
+<==        Row: B220601
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6eff50d7]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6eff50d7] from current transaction
+==>  Preparing: select id,teacher,exp_id,start_date,end_date from njupt_physim.tasks where clazz_id=?
+==> Parameters: B220601(String)
+<==    Columns: id, teacher, exp_id, start_date, end_date
+<==        Row: 4, 王增旭, 1, 2026-03-11, 2026-03-24
+<==        Row: 5, 王增旭, 2, 2026-03-20, 2026-03-26
+<==        Row: 12, 王增旭, 3, 2026-09-15, 2026-09-29
+<==      Total: 3
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6eff50d7]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6eff50d7] from current transaction
+==>  Preparing: select count(*) from njupt_physim.completions where stu_id = ? and task_id = ?
+==> Parameters: B22060105(String), 5(Integer)
+<==    Columns: count(*)
+<==        Row: 0
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6eff50d7]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6eff50d7] from current transaction
+==>  Preparing: insert into njupt_physim.completions (stu_id, clazz_id, task_id, time, score) values (?, ?, ?, NOW(), ?)
+==> Parameters: B22060105(String), B220601(String), 5(Integer), 88(Integer)
+<==    Updates: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6eff50d7]
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6eff50d7]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6eff50d7]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6eff50d7]
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7ab17971]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will be managed by Spring
+==>  Preparing: SELECT id,name,account,password,create_time,role_id,avatar,college FROM users WHERE id=?
+==> Parameters: B22060105(String)
+<==    Columns: id, name, account, password, create_time, role_id, avatar, college
+<==        Row: B22060105, 张丽丽, B22060105, 123456, 2025-08-02, 3, , 
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7ab17971]
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7ab17971]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7ab17971]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7ab17971]
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@52b54ef3]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will be managed by Spring
+==>  Preparing: insert into njupt_physim.sys_log_operation (operation, request_uri, request_method, request_params, request_time, ip, status, creator_name, creator, type, create_date) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+==> Parameters: 新增:提交WebGL实验成绩(String), /stu/B22060105/tasks/complete(String), POST(String), ["B22060105",{"expId":2,"score":88}](String), 21(Integer), 127.0.0.1(String), 1(Integer), 张丽丽(String), B22060105(String), 1(String), 2026-09-23T09:10:54.280169600(LocalDateTime)
+<==    Updates: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@52b54ef3]
+2026-09-23T09:10:54.312+08:00  INFO 17368 --- [NJUPTPhySim] [nio-8081-exec-6] o.n.n.s.service.impl.LogServiceImpl      : [操作日志] 用户[张丽丽] 于2026-09-23 09:10:54 执行了【新增:提交WebGL实验成绩】(类型：业务事件，URI：POST /stu/B22060105/tasks/complete，耗时：21ms，结果：成功)
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@52b54ef3]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@52b54ef3]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@52b54ef3]
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3cd19c9d]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will be managed by Spring
+==>  Preparing: select * from njupt_physim.users where account = ? and password = ?
+==> Parameters: LS001(String), 123456(String)
+<==    Columns: id, name, account, password, create_time, role_id, avatar, college
+<==        Row: LS001, 王增旭, LS001, 123456, 2025-08-02, 2, , 
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3cd19c9d]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3cd19c9d] from current transaction
+==>  Preparing: select name from njupt_physim.roles where id = ?
+==> Parameters: 2(Integer)
+<==    Columns: name
+<==        Row: teacher
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3cd19c9d]
+Transaction synchronization suspending SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3cd19c9d]
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@432e30c0]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@717a67c4] will be managed by Spring
+==>  Preparing: insert into njupt_physim.sys_log_login (operation, status, creator_name, create_date) values (?, ?, ?, ?)
+==> Parameters: 0(Integer), 1(Integer), LS001(String), 2026-09-23T09:10:54.505335800(LocalDateTime)
+<==    Updates: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@432e30c0]
+2026-09-23T09:10:54.508+08:00  INFO 17368 --- [NJUPTPhySim] [nio-8081-exec-7] o.n.n.s.service.impl.LogServiceImpl      : [登录日志] 用户[LS001] 于2026-09-23 09:10:54 登录成功
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@432e30c0]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@432e30c0]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@432e30c0]
+Transaction synchronization resuming SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3cd19c9d]
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3cd19c9d]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3cd19c9d]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3cd19c9d]
+2026-09-23T09:10:54.736+08:00  INFO 17368 --- [NJUPTPhySim] [nio-8081-exec-8] o.n.n.c.Interceptors.LoginInterceptor    : 请求路径: /tea/LS001/tasks/5/detail
+2026-09-23T09:10:54.736+08:00  INFO 17368 --- [NJUPTPhySim] [nio-8081-exec-8] o.n.n.c.Interceptors.LoginInterceptor    : token:eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3OTAxMjU4NTQsImV4cCI6MTc5MDE2MTg1NCwiaWQiOiJMUzAwMSJ9.KTUpjpWdGcaYHUojVHBta8CAgxOHyCe3lDtrdpVCMaw
+2026-09-23T09:10:54.739+08:00  INFO 17368 --- [NJUPTPhySim] [nio-8081-exec-8] o.n.n.c.Interceptors.LoginInterceptor    : 令牌合法, 放行
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@13c70f37]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will be managed by Spring
+==>  Preparing: SELECT id,name,account,password,create_time,role_id,avatar,college FROM users WHERE id=?
+==> Parameters: LS001(String)
+<==    Columns: id, name, account, password, create_time, role_id, avatar, college
+<==        Row: LS001, 王增旭, LS001, 123456, 2025-08-02, 2, , 
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@13c70f37]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@13c70f37] from current transaction
+==>  Preparing: select name from njupt_physim.roles where id = ?
+==> Parameters: 2(Integer)
+<==    Columns: name
+<==        Row: teacher
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@13c70f37]
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@13c70f37]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@13c70f37]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@13c70f37]
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7edeb109]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will be managed by Spring
+==>  Preparing: select id, teacher, clazz_id, exp_id, start_date, end_date, complete_count, total_count from njupt_physim.tasks where id = ?
+==> Parameters: 5(Integer)
+<==    Columns: id, teacher, clazz_id, exp_id, start_date, end_date, complete_count, total_count
+<==        Row: 5, 王增旭, B220601, 2, 2026-03-20, 2026-03-26, 1, 2
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7edeb109]
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7edeb109]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7edeb109]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7edeb109]
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@27a23427]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will be managed by Spring
+==>  Preparing: select * from njupt_physim.resources where id=?
+==> Parameters: 2(Integer)
+<==    Columns: id, title, create_time, creater_id, coverImage, url, tag, content, likes, easy_count, hard_count
+<==        Row: 2, 光的折射与反射, 2026-03-17, LS001, , , 光学, 模拟光线在不同介质中的传播，验证折射定律, 2, 3, 2
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@27a23427]
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@27a23427]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@27a23427]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@27a23427]
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@14209c2b]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will be managed by Spring
+==>  Preparing: select count(*) from njupt_physim.completions where task_id = ?
+==> Parameters: 5(Integer)
+<==    Columns: count(*)
+<==        Row: 2
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@14209c2b]
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@14209c2b]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@14209c2b]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@14209c2b]
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@56f61761]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will be managed by Spring
+==>  Preparing: select count(*) from njupt_physim.user_clazz where clazz_id=? and role_id=3
+==> Parameters: B220601(String)
+<==    Columns: count(*)
+<==        Row: 2
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@56f61761]
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@56f61761]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@56f61761]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@56f61761]
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@263e5551]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will be managed by Spring
+==>  Preparing: SELECT id,name,account,password,create_time,role_id,avatar,college FROM users WHERE id=?
+==> Parameters: LS001(String)
+<==    Columns: id, name, account, password, create_time, role_id, avatar, college
+<==        Row: LS001, 王增旭, LS001, 123456, 2025-08-02, 2, , 
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@263e5551]
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@263e5551]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@263e5551]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@263e5551]
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@77b2a462]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will be managed by Spring
+==>  Preparing: insert into njupt_physim.sys_log_operation (operation, request_uri, request_method, request_params, request_time, ip, status, creator_name, creator, type, create_date) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+==> Parameters: 查询:按任务id查看实验任务数据(String), /tea/LS001/tasks/5/detail(String), GET(String), ["LS001",5](String), 21(Integer), 127.0.0.1(String), 1(Integer), 王增旭(String), LS001(String), 1(String), 2026-09-23T09:10:54.748343(LocalDateTime)
+<==    Updates: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@77b2a462]
+2026-09-23T09:10:54.779+08:00  INFO 17368 --- [NJUPTPhySim] [nio-8081-exec-8] o.n.n.s.service.impl.LogServiceImpl      : [操作日志] 用户[王增旭] 于2026-09-23 09:10:54 执行了【查询:按任务id查看实验任务数据】(类型：业务事件，URI：GET /tea/LS001/tasks/5/detail，耗时：21ms，结果：成功)
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@77b2a462]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@77b2a462]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@77b2a462]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@15e548c3] was not registered for synchronization because synchronization is not active
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will not be managed by Spring
+==>  Preparing: select ip from njupt_physim.sys_ip_blacklist where status = 1
+==> Parameters: 
+<==      Total: 0
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@15e548c3]
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2d9b0701]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will be managed by Spring
+==>  Preparing: select * from njupt_physim.users where account = ? and password = ?
+==> Parameters: LS001(String), 123456(String)
+<==    Columns: id, name, account, password, create_time, role_id, avatar, college
+<==        Row: LS001, 王增旭, LS001, 123456, 2025-08-02, 2, , 
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2d9b0701]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2d9b0701] from current transaction
+==>  Preparing: select user_id from njupt_physim.sys_user_ban where status = 1
+==> Parameters: 
+<==      Total: 0
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2d9b0701]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2d9b0701] from current transaction
+==>  Preparing: select name from njupt_physim.roles where id = ?
+==> Parameters: 2(Integer)
+<==    Columns: name
+<==        Row: teacher
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2d9b0701]
+Transaction synchronization suspending SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2d9b0701]
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2a81b89f]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@717a67c4] will be managed by Spring
+==>  Preparing: insert into njupt_physim.sys_log_login (operation, status, creator_name, create_date) values (?, ?, ?, ?)
+==> Parameters: 0(Integer), 1(Integer), LS001(String), 2026-09-23T09:11:05.128682600(LocalDateTime)
+<==    Updates: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2a81b89f]
+2026-09-23T09:11:05.131+08:00  INFO 17368 --- [NJUPTPhySim] [io-8081-exec-10] o.n.n.s.service.impl.LogServiceImpl      : [登录日志] 用户[LS001] 于2026-09-23 09:11:05 登录成功
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2a81b89f]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2a81b89f]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2a81b89f]
+Transaction synchronization resuming SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2d9b0701]
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2d9b0701]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2d9b0701]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2d9b0701]
+2026-09-23T09:11:05.303+08:00  INFO 17368 --- [NJUPTPhySim] [nio-8081-exec-2] o.n.n.c.Interceptors.LoginInterceptor    : 请求路径: /tea/LS001/tasks/5/detail
+2026-09-23T09:11:05.303+08:00  INFO 17368 --- [NJUPTPhySim] [nio-8081-exec-2] o.n.n.c.Interceptors.LoginInterceptor    : token:eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3OTAxMjU4NjUsImV4cCI6MTc5MDE2MTg2NSwiaWQiOiJMUzAwMSJ9.EsnNTUn0XEn181O4C_BsaTMRmdm_6b9rk-x7xTaenkE
+2026-09-23T09:11:05.304+08:00  INFO 17368 --- [NJUPTPhySim] [nio-8081-exec-2] o.n.n.c.Interceptors.LoginInterceptor    : 令牌合法, 放行
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@f47bff4]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will be managed by Spring
+==>  Preparing: SELECT id,name,account,password,create_time,role_id,avatar,college FROM users WHERE id=?
+==> Parameters: LS001(String)
+<==    Columns: id, name, account, password, create_time, role_id, avatar, college
+<==        Row: LS001, 王增旭, LS001, 123456, 2025-08-02, 2, , 
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@f47bff4]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@f47bff4] from current transaction
+==>  Preparing: select name from njupt_physim.roles where id = ?
+==> Parameters: 2(Integer)
+<==    Columns: name
+<==        Row: teacher
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@f47bff4]
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@f47bff4]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@f47bff4]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@f47bff4]
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@768b4524]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will be managed by Spring
+==>  Preparing: select id, teacher, clazz_id, exp_id, start_date, end_date, complete_count, total_count from njupt_physim.tasks where id = ?
+==> Parameters: 5(Integer)
+<==    Columns: id, teacher, clazz_id, exp_id, start_date, end_date, complete_count, total_count
+<==        Row: 5, 王增旭, B220601, 2, 2026-03-20, 2026-03-26, 1, 2
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@768b4524]
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@768b4524]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@768b4524]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@768b4524]
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1bc6b7a3]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will be managed by Spring
+==>  Preparing: select * from njupt_physim.resources where id=?
+==> Parameters: 2(Integer)
+<==    Columns: id, title, create_time, creater_id, coverImage, url, tag, content, likes, easy_count, hard_count
+<==        Row: 2, 光的折射与反射, 2026-03-17, LS001, , , 光学, 模拟光线在不同介质中的传播，验证折射定律, 2, 3, 2
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1bc6b7a3]
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1bc6b7a3]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1bc6b7a3]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1bc6b7a3]
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7da659da]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will be managed by Spring
+==>  Preparing: select count(*) from njupt_physim.completions where task_id = ?
+==> Parameters: 5(Integer)
+<==    Columns: count(*)
+<==        Row: 1
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7da659da]
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7da659da]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7da659da]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7da659da]
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@18ade52c]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will be managed by Spring
+==>  Preparing: select count(*) from njupt_physim.user_clazz where clazz_id=? and role_id=3
+==> Parameters: B220601(String)
+<==    Columns: count(*)
+<==        Row: 2
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@18ade52c]
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@18ade52c]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@18ade52c]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@18ade52c]
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@20b7819d]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will be managed by Spring
+==>  Preparing: SELECT id,name,account,password,create_time,role_id,avatar,college FROM users WHERE id=?
+==> Parameters: LS001(String)
+<==    Columns: id, name, account, password, create_time, role_id, avatar, college
+<==        Row: LS001, 王增旭, LS001, 123456, 2025-08-02, 2, , 
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@20b7819d]
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@20b7819d]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@20b7819d]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@20b7819d]
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@631f1ba5]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will be managed by Spring
+==>  Preparing: insert into njupt_physim.sys_log_operation (operation, request_uri, request_method, request_params, request_time, ip, status, creator_name, creator, type, create_date) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+==> Parameters: 查询:按任务id查看实验任务数据(String), /tea/LS001/tasks/5/detail(String), GET(String), ["LS001",5](String), 26(Integer), 127.0.0.1(String), 1(Integer), 王增旭(String), LS001(String), 1(String), 2026-09-23T09:11:05.312765900(LocalDateTime)
+<==    Updates: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@631f1ba5]
+2026-09-23T09:11:05.348+08:00  INFO 17368 --- [NJUPTPhySim] [nio-8081-exec-2] o.n.n.s.service.impl.LogServiceImpl      : [操作日志] 用户[王增旭] 于2026-09-23 09:11:05 执行了【查询:按任务id查看实验任务数据】(类型：业务事件，URI：GET /tea/LS001/tasks/5/detail，耗时：26ms，结果：成功)
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@631f1ba5]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@631f1ba5]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@631f1ba5]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@390f9b33] was not registered for synchronization because synchronization is not active
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will not be managed by Spring
+==>  Preparing: select ip from njupt_physim.sys_ip_blacklist where status = 1
+==> Parameters: 
+<==      Total: 0
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@390f9b33]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7f70d0d0] was not registered for synchronization because synchronization is not active
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will not be managed by Spring
+==>  Preparing: select ip from njupt_physim.sys_ip_blacklist where status = 1
+==> Parameters: 
+2026-09-23T09:12:17.067+08:00  INFO 17368 --- [NJUPTPhySim] [nio-8081-exec-4] o.n.n.c.Interceptors.LoginInterceptor    : 请求路径: /tea/LS001/tasks/4/detail
+2026-09-23T09:12:17.067+08:00  INFO 17368 --- [NJUPTPhySim] [nio-8081-exec-4] o.n.n.c.Interceptors.LoginInterceptor    : token:eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3OTAxMjQzMjIsImV4cCI6MTc5MDE2MDMyMiwiaWQiOiJMUzAwMSJ9.W_rzHQ-3Hem1Ju33Vk1d-_PjNaklHaDQiQpgGVzotAM
+<==      Total: 0
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7f70d0d0]
+2026-09-23T09:12:17.069+08:00  INFO 17368 --- [NJUPTPhySim] [nio-8081-exec-4] o.n.n.c.Interceptors.LoginInterceptor    : 令牌合法, 放行
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3f81bf57] was not registered for synchronization because synchronization is not active
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will not be managed by Spring
+==>  Preparing: select user_id from njupt_physim.sys_user_ban where status = 1
+==> Parameters: 
+2026-09-23T09:12:17.069+08:00  INFO 17368 --- [NJUPTPhySim] [nio-8081-exec-5] o.n.n.c.Interceptors.LoginInterceptor    : 请求路径: /tea/LS001/tasks/4/clazzed/B220601/stu
+2026-09-23T09:12:17.070+08:00  INFO 17368 --- [NJUPTPhySim] [nio-8081-exec-5] o.n.n.c.Interceptors.LoginInterceptor    : token:eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3OTAxMjQzMjIsImV4cCI6MTc5MDE2MDMyMiwiaWQiOiJMUzAwMSJ9.W_rzHQ-3Hem1Ju33Vk1d-_PjNaklHaDQiQpgGVzotAM
+<==      Total: 0
+2026-09-23T09:12:17.070+08:00  INFO 17368 --- [NJUPTPhySim] [nio-8081-exec-5] o.n.n.c.Interceptors.LoginInterceptor    : 令牌合法, 放行
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3f81bf57]
+Creating a new SqlSession
+SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@b7282ce] was not registered for synchronization because synchronization is not active
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@717a67c4] will not be managed by Spring
+==>  Preparing: select user_id from njupt_physim.sys_user_ban where status = 1
+==> Parameters: 
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1dd78070]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will be managed by Spring
+==>  Preparing: SELECT id,name,account,password,create_time,role_id,avatar,college FROM users WHERE id=?
+==> Parameters: LS001(String)
+<==    Columns: id, name, account, password, create_time, role_id, avatar, college
+<==        Row: LS001, 王增旭, LS001, 123456, 2025-08-02, 2, , 
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1dd78070]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1dd78070] from current transaction
+==>  Preparing: select name from njupt_physim.roles where id = ?
+==> Parameters: 2(Integer)
+<==      Total: 0
+<==    Columns: name
+<==        Row: teacher
+<==      Total: 1
+Closing non transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@b7282ce]
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1dd78070]
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1dd78070]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1dd78070]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1dd78070]
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@50d3e148]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@717a67c4] will be managed by Spring
+==>  Preparing: SELECT id,name,account,password,create_time,role_id,avatar,college FROM users WHERE id=?
+==> Parameters: LS001(String)
+<==    Columns: id, name, account, password, create_time, role_id, avatar, college
+<==        Row: LS001, 王增旭, LS001, 123456, 2025-08-02, 2, , 
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@74cd7b53]
+<==      Total: 1
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will be managed by Spring
+==>  Preparing: select id, teacher, clazz_id, exp_id, start_date, end_date, complete_count, total_count from njupt_physim.tasks where id = ?
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@50d3e148]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@50d3e148] from current transaction
+==>  Preparing: select name from njupt_physim.roles where id = ?
+==> Parameters: 4(Integer)
+==> Parameters: 2(Integer)
+<==    Columns: name
+<==        Row: teacher
+<==      Total: 1
+<==    Columns: id, teacher, clazz_id, exp_id, start_date, end_date, complete_count, total_count
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@50d3e148]
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@50d3e148]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@50d3e148]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@50d3e148]
+<==        Row: 4, 王增旭, B220601, 1, 2026-03-11, 2026-03-24, 2, 2
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@74cd7b53]
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@74cd7b53]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@74cd7b53]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@74cd7b53]
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@402f22f]
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1d98dff5]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@717a67c4] will be managed by Spring
+==>  Preparing: select c.id as id, stu_id, score, u.name as stuName from njupt_physim.completions c left join njupt_physim.users u on c.stu_id=u.id where task_id=? and clazz_id=?
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will be managed by Spring
+==>  Preparing: select * from njupt_physim.resources where id=?
+==> Parameters: 1(Integer)
+==> Parameters: 4(Integer), B220601(String)
+<==    Columns: id, title, create_time, creater_id, coverImage, url, tag, content, likes, easy_count, hard_count
+<==        Row: 1, 串联与并联电路, 2026-03-17, LS001, /img/20260922114412_cover.png, , 电学, 搭建虚拟电路，探究串并联电路电流电压规律, 3, 1, 1
+<==    Columns: id, stu_id, score, stuName
+<==      Total: 1
+<==        Row: 3, B22060101, 100, 李斯
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1d98dff5]
+<==      Total: 1
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1d98dff5]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1d98dff5]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1d98dff5]
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@402f22f]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@402f22f] from current transaction
+==>  Preparing: select id, name, account, create_time, role_id, avatar, college from njupt_physim.users where id in (select user_id from njupt_physim.user_clazz where clazz_id=? and user_clazz.role_id=3 )
+==> Parameters: B220601(String)
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@598013e0]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will be managed by Spring
+==>  Preparing: select count(*) from njupt_physim.completions where task_id = ?
+==> Parameters: 4(Integer)
+<==    Columns: id, name, account, create_time, role_id, avatar, college
+<==        Row: B22060101, 李斯, B22060101, 2026-02-08, 3, , 
+<==        Row: B22060105, 张丽丽, B22060105, 2025-08-02, 3, , 
+<==      Total: 2
+<==    Columns: count(*)
+<==        Row: 1
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@402f22f]
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@598013e0]
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@402f22f]
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@598013e0]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@402f22f]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@598013e0]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@402f22f]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@598013e0]
+Creating a new SqlSession
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@51cf18a5]
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5f3b52df]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@717a67c4] will be managed by Spring
+==>  Preparing: SELECT id,name,account,password,create_time,role_id,avatar,college FROM users WHERE id=?
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will be managed by Spring
+==>  Preparing: select count(*) from njupt_physim.user_clazz where clazz_id=? and role_id=3
+==> Parameters: LS001(String)
+==> Parameters: B220601(String)
+<==    Columns: id, name, account, password, create_time, role_id, avatar, college
+<==    Columns: count(*)
+<==        Row: 2
+<==      Total: 1
+<==        Row: LS001, 王增旭, LS001, 123456, 2025-08-02, 2, , 
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5f3b52df]
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5f3b52df]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5f3b52df]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5f3b52df]
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@51cf18a5]
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@51cf18a5]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@51cf18a5]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@51cf18a5]
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6ed1fc81]
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@27f173a6]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@717a67c4] will be managed by Spring
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will be managed by Spring
+==>  Preparing: insert into njupt_physim.sys_log_operation (operation, request_uri, request_method, request_params, request_time, ip, status, creator_name, creator, type, create_date) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+==>  Preparing: SELECT id,name,account,password,create_time,role_id,avatar,college FROM users WHERE id=?
+==> Parameters: LS001(String)
+==> Parameters: 查询:查看学生任务完成情况(String), /tea/LS001/tasks/4/clazzed/B220601/stu(String), GET(String), ["LS001",4,"B220601"](String), 16(Integer), 127.0.0.1(String), 1(Integer), 王增旭(String), LS001(String), 1(String), 2026-09-23T09:12:17.092802(LocalDateTime)
+<==    Columns: id, name, account, password, create_time, role_id, avatar, college
+<==        Row: LS001, 王增旭, LS001, 123456, 2025-08-02, 2, , 
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@27f173a6]
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@27f173a6]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@27f173a6]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@27f173a6]
+<==    Updates: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6ed1fc81]
+2026-09-23T09:12:17.123+08:00  INFO 17368 --- [NJUPTPhySim] [nio-8081-exec-5] o.n.n.s.service.impl.LogServiceImpl      : [操作日志] 用户[王增旭] 于2026-09-23 09:12:17 执行了【查询:查看学生任务完成情况】(类型：业务事件，URI：GET /tea/LS001/tasks/4/clazzed/B220601/stu，耗时：16ms，结果：成功)
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6ed1fc81]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6ed1fc81]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6ed1fc81]
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@27708f61]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will be managed by Spring
+==>  Preparing: insert into njupt_physim.sys_log_operation (operation, request_uri, request_method, request_params, request_time, ip, status, creator_name, creator, type, create_date) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+==> Parameters: 查询:按任务id查看实验任务数据(String), /tea/LS001/tasks/4/detail(String), GET(String), ["LS001",4](String), 33(Integer), 127.0.0.1(String), 1(Integer), 王增旭(String), LS001(String), 1(String), 2026-09-23T09:12:17.083699600(LocalDateTime)
+<==    Updates: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@27708f61]
+2026-09-23T09:12:17.130+08:00  INFO 17368 --- [NJUPTPhySim] [nio-8081-exec-4] o.n.n.s.service.impl.LogServiceImpl      : [操作日志] 用户[王增旭] 于2026-09-23 09:12:17 执行了【查询:按任务id查看实验任务数据】(类型：业务事件，URI：GET /tea/LS001/tasks/4/detail，耗时：33ms，结果：成功)
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@27708f61]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@27708f61]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@27708f61]
+2026-09-23T09:12:18.220+08:00  INFO 17368 --- [NJUPTPhySim] [nio-8081-exec-7] o.n.n.c.Interceptors.LoginInterceptor    : 请求路径: /tea/LS001/tasks/12/clazzed/B220601/stu
+2026-09-23T09:12:18.220+08:00  INFO 17368 --- [NJUPTPhySim] [nio-8081-exec-6] o.n.n.c.Interceptors.LoginInterceptor    : 请求路径: /tea/LS001/tasks/12/detail
+2026-09-23T09:12:18.220+08:00  INFO 17368 --- [NJUPTPhySim] [nio-8081-exec-7] o.n.n.c.Interceptors.LoginInterceptor    : token:eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3OTAxMjQzMjIsImV4cCI6MTc5MDE2MDMyMiwiaWQiOiJMUzAwMSJ9.W_rzHQ-3Hem1Ju33Vk1d-_PjNaklHaDQiQpgGVzotAM
+2026-09-23T09:12:18.220+08:00  INFO 17368 --- [NJUPTPhySim] [nio-8081-exec-6] o.n.n.c.Interceptors.LoginInterceptor    : token:eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3OTAxMjQzMjIsImV4cCI6MTc5MDE2MDMyMiwiaWQiOiJMUzAwMSJ9.W_rzHQ-3Hem1Ju33Vk1d-_PjNaklHaDQiQpgGVzotAM
+2026-09-23T09:12:18.222+08:00  INFO 17368 --- [NJUPTPhySim] [nio-8081-exec-6] o.n.n.c.Interceptors.LoginInterceptor    : 令牌合法, 放行
+2026-09-23T09:12:18.223+08:00  INFO 17368 --- [NJUPTPhySim] [nio-8081-exec-7] o.n.n.c.Interceptors.LoginInterceptor    : 令牌合法, 放行
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@18f45143]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will be managed by Spring
+==>  Preparing: SELECT id,name,account,password,create_time,role_id,avatar,college FROM users WHERE id=?
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@719cfc0f]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@717a67c4] will be managed by Spring
+==> Parameters: LS001(String)
+==>  Preparing: SELECT id,name,account,password,create_time,role_id,avatar,college FROM users WHERE id=?
+==> Parameters: LS001(String)
+<==    Columns: id, name, account, password, create_time, role_id, avatar, college
+<==    Columns: id, name, account, password, create_time, role_id, avatar, college
+<==        Row: LS001, 王增旭, LS001, 123456, 2025-08-02, 2, , 
+<==        Row: LS001, 王增旭, LS001, 123456, 2025-08-02, 2, , 
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@719cfc0f]
+<==      Total: 1
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@719cfc0f] from current transaction
+==>  Preparing: select name from njupt_physim.roles where id = ?
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@18f45143]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@18f45143] from current transaction
+==> Parameters: 2(Integer)
+==>  Preparing: select name from njupt_physim.roles where id = ?
+==> Parameters: 2(Integer)
+<==    Columns: name
+<==        Row: teacher
+<==      Total: 1
+<==    Columns: name
+<==        Row: teacher
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@18f45143]
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@719cfc0f]
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@18f45143]
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@719cfc0f]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@18f45143]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@719cfc0f]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@18f45143]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@719cfc0f]
+Creating a new SqlSession
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@c9f4b83]
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@50bbd50f]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@717a67c4] will be managed by Spring
+==>  Preparing: select id, teacher, clazz_id, exp_id, start_date, end_date, complete_count, total_count from njupt_physim.tasks where id = ?
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will be managed by Spring
+==>  Preparing: select c.id as id, stu_id, score, u.name as stuName from njupt_physim.completions c left join njupt_physim.users u on c.stu_id=u.id where task_id=? and clazz_id=?
+==> Parameters: 12(Integer)
+==> Parameters: 12(Integer), B220601(String)
+<==    Columns: id, stu_id, score, stuName
+<==        Row: 2, B22060101, 95, 李斯
+<==    Columns: id, teacher, clazz_id, exp_id, start_date, end_date, complete_count, total_count
+<==        Row: 12, 王增旭, B220601, 3, 2026-09-15, 2026-09-29, 1, 2
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@c9f4b83]
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@c9f4b83]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@c9f4b83]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@c9f4b83]
+<==        Row: 6, B22060105, 100, 张丽丽
+<==      Total: 2
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@50bbd50f]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@50bbd50f] from current transaction
+==>  Preparing: select id, name, account, create_time, role_id, avatar, college from njupt_physim.users where id in (select user_id from njupt_physim.user_clazz where clazz_id=? and user_clazz.role_id=3 )
+==> Parameters: B220601(String)
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@21cfb3dc]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@717a67c4] will be managed by Spring
+==>  Preparing: select * from njupt_physim.resources where id=?
+==> Parameters: 3(Integer)
+<==    Columns: id, name, account, create_time, role_id, avatar, college
+<==        Row: B22060101, 李斯, B22060101, 2026-02-08, 3, , 
+<==        Row: B22060105, 张丽丽, B22060105, 2025-08-02, 3, , 
+<==      Total: 2
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@50bbd50f]
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@50bbd50f]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@50bbd50f]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@50bbd50f]
+<==    Columns: id, title, create_time, creater_id, coverImage, url, tag, content, likes, easy_count, hard_count
+<==        Row: 3, 声波干涉与共鸣, 2026-03-17, LS001, , , 声学, 观察声波的叠加与干涉现象，理解波的叠加原理, 0, 0, 0
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@21cfb3dc]
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@21cfb3dc]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@21cfb3dc]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@21cfb3dc]
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3ace0e09]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will be managed by Spring
+==>  Preparing: SELECT id,name,account,password,create_time,role_id,avatar,college FROM users WHERE id=?
+==> Parameters: LS001(String)
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5eecab46]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@717a67c4] will be managed by Spring
+==>  Preparing: select count(*) from njupt_physim.completions where task_id = ?
+==> Parameters: 12(Integer)
+<==    Columns: id, name, account, password, create_time, role_id, avatar, college
+<==        Row: LS001, 王增旭, LS001, 123456, 2025-08-02, 2, , 
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3ace0e09]
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3ace0e09]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3ace0e09]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3ace0e09]
+<==    Columns: count(*)
+<==        Row: 2
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5eecab46]
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5eecab46]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5eecab46]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5eecab46]
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4c55e590]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will be managed by Spring
+==>  Preparing: insert into njupt_physim.sys_log_operation (operation, request_uri, request_method, request_params, request_time, ip, status, creator_name, creator, type, create_date) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+==> Parameters: 查询:查看学生任务完成情况(String), /tea/LS001/tasks/12/clazzed/B220601/stu(String), GET(String), ["LS001",12,"B220601"](String), 13(Integer), 127.0.0.1(String), 1(Integer), 王增旭(String), LS001(String), 1(String), 2026-09-23T09:12:18.234130(LocalDateTime)
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3c9dc428]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@717a67c4] will be managed by Spring
+==>  Preparing: select count(*) from njupt_physim.user_clazz where clazz_id=? and role_id=3
+==> Parameters: B220601(String)
+<==    Updates: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4c55e590]
+<==    Columns: count(*)
+<==        Row: 2
+<==      Total: 1
+2026-09-23T09:12:18.259+08:00  INFO 17368 --- [NJUPTPhySim] [nio-8081-exec-7] o.n.n.s.service.impl.LogServiceImpl      : [操作日志] 用户[王增旭] 于2026-09-23 09:12:18 执行了【查询:查看学生任务完成情况】(类型：业务事件，URI：GET /tea/LS001/tasks/12/clazzed/B220601/stu，耗时：13ms，结果：成功)
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4c55e590]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4c55e590]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4c55e590]
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3c9dc428]
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3c9dc428]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3c9dc428]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3c9dc428]
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2f1aa183]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@717a67c4] will be managed by Spring
+==>  Preparing: SELECT id,name,account,password,create_time,role_id,avatar,college FROM users WHERE id=?
+==> Parameters: LS001(String)
+<==    Columns: id, name, account, password, create_time, role_id, avatar, college
+<==        Row: LS001, 王增旭, LS001, 123456, 2025-08-02, 2, , 
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2f1aa183]
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2f1aa183]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2f1aa183]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2f1aa183]
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1692ef7]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@717a67c4] will be managed by Spring
+==>  Preparing: insert into njupt_physim.sys_log_operation (operation, request_uri, request_method, request_params, request_time, ip, status, creator_name, creator, type, create_date) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+==> Parameters: 查询:按任务id查看实验任务数据(String), /tea/LS001/tasks/12/detail(String), GET(String), ["LS001",12](String), 29(Integer), 127.0.0.1(String), 1(Integer), 王增旭(String), LS001(String), 1(String), 2026-09-23T09:12:18.233166900(LocalDateTime)
+<==    Updates: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1692ef7]
+2026-09-23T09:12:18.276+08:00  INFO 17368 --- [NJUPTPhySim] [nio-8081-exec-6] o.n.n.s.service.impl.LogServiceImpl      : [操作日志] 用户[王增旭] 于2026-09-23 09:12:18 执行了【查询:按任务id查看实验任务数据】(类型：业务事件，URI：GET /tea/LS001/tasks/12/detail，耗时：29ms，结果：成功)
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1692ef7]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1692ef7]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1692ef7]
+2026-09-23T09:12:19.532+08:00  INFO 17368 --- [NJUPTPhySim] [nio-8081-exec-9] o.n.n.c.Interceptors.LoginInterceptor    : 请求路径: /tea/LS001/tasks/5/clazzed/B220601/stu
+2026-09-23T09:12:19.532+08:00  INFO 17368 --- [NJUPTPhySim] [nio-8081-exec-8] o.n.n.c.Interceptors.LoginInterceptor    : 请求路径: /tea/LS001/tasks/5/detail
+2026-09-23T09:12:19.532+08:00  INFO 17368 --- [NJUPTPhySim] [nio-8081-exec-9] o.n.n.c.Interceptors.LoginInterceptor    : token:eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3OTAxMjQzMjIsImV4cCI6MTc5MDE2MDMyMiwiaWQiOiJMUzAwMSJ9.W_rzHQ-3Hem1Ju33Vk1d-_PjNaklHaDQiQpgGVzotAM
+2026-09-23T09:12:19.533+08:00  INFO 17368 --- [NJUPTPhySim] [nio-8081-exec-8] o.n.n.c.Interceptors.LoginInterceptor    : token:eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3OTAxMjQzMjIsImV4cCI6MTc5MDE2MDMyMiwiaWQiOiJMUzAwMSJ9.W_rzHQ-3Hem1Ju33Vk1d-_PjNaklHaDQiQpgGVzotAM
+2026-09-23T09:12:19.533+08:00  INFO 17368 --- [NJUPTPhySim] [nio-8081-exec-9] o.n.n.c.Interceptors.LoginInterceptor    : 令牌合法, 放行
+2026-09-23T09:12:19.534+08:00  INFO 17368 --- [NJUPTPhySim] [nio-8081-exec-8] o.n.n.c.Interceptors.LoginInterceptor    : 令牌合法, 放行
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@85e6989]
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2667eeb]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@717a67c4] will be managed by Spring
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will be managed by Spring
+==>  Preparing: SELECT id,name,account,password,create_time,role_id,avatar,college FROM users WHERE id=?
+==>  Preparing: SELECT id,name,account,password,create_time,role_id,avatar,college FROM users WHERE id=?
+==> Parameters: LS001(String)
+==> Parameters: LS001(String)
+<==    Columns: id, name, account, password, create_time, role_id, avatar, college
+<==    Columns: id, name, account, password, create_time, role_id, avatar, college
+<==        Row: LS001, 王增旭, LS001, 123456, 2025-08-02, 2, , 
+<==        Row: LS001, 王增旭, LS001, 123456, 2025-08-02, 2, , 
+<==      Total: 1
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2667eeb]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2667eeb] from current transaction
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@85e6989]
+==>  Preparing: select name from njupt_physim.roles where id = ?
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@85e6989] from current transaction
+==>  Preparing: select name from njupt_physim.roles where id = ?
+==> Parameters: 2(Integer)
+==> Parameters: 2(Integer)
+<==    Columns: name
+<==        Row: teacher
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2667eeb]
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2667eeb]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2667eeb]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2667eeb]
+<==    Columns: name
+<==        Row: teacher
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@85e6989]
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@85e6989]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@85e6989]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@85e6989]
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3ccdb795]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@717a67c4] will be managed by Spring
+==>  Preparing: select c.id as id, stu_id, score, u.name as stuName from njupt_physim.completions c left join njupt_physim.users u on c.stu_id=u.id where task_id=? and clazz_id=?
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@69f6e3af]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will be managed by Spring
+==>  Preparing: select id, teacher, clazz_id, exp_id, start_date, end_date, complete_count, total_count from njupt_physim.tasks where id = ?
+==> Parameters: 5(Integer), B220601(String)
+==> Parameters: 5(Integer)
+<==    Columns: id, teacher, clazz_id, exp_id, start_date, end_date, complete_count, total_count
+<==    Columns: id, stu_id, score, stuName
+<==        Row: 5, B22060101, 100, 李斯
+<==        Row: 5, 王增旭, B220601, 2, 2026-03-20, 2026-03-26, 1, 2
+<==      Total: 1
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3ccdb795]
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@69f6e3af]
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@69f6e3af]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@69f6e3af]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@69f6e3af]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3ccdb795] from current transaction
+==>  Preparing: select id, name, account, create_time, role_id, avatar, college from njupt_physim.users where id in (select user_id from njupt_physim.user_clazz where clazz_id=? and user_clazz.role_id=3 )
+==> Parameters: B220601(String)
+<==    Columns: id, name, account, create_time, role_id, avatar, college
+<==        Row: B22060101, 李斯, B22060101, 2026-02-08, 3, , 
+<==        Row: B22060105, 张丽丽, B22060105, 2025-08-02, 3, , 
+<==      Total: 2
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3ccdb795]
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3ccdb795]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3ccdb795]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3ccdb795]
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2438d347]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will be managed by Spring
+==>  Preparing: select * from njupt_physim.resources where id=?
+==> Parameters: 2(Integer)
+<==    Columns: id, title, create_time, creater_id, coverImage, url, tag, content, likes, easy_count, hard_count
+<==        Row: 2, 光的折射与反射, 2026-03-17, LS001, , , 光学, 模拟光线在不同介质中的传播，验证折射定律, 2, 3, 2
+<==      Total: 1
+Creating a new SqlSession
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2438d347]
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@76ab09fd]
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2438d347]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2438d347]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2438d347]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@717a67c4] will be managed by Spring
+==>  Preparing: SELECT id,name,account,password,create_time,role_id,avatar,college FROM users WHERE id=?
+==> Parameters: LS001(String)
+<==    Columns: id, name, account, password, create_time, role_id, avatar, college
+<==        Row: LS001, 王增旭, LS001, 123456, 2025-08-02, 2, , 
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@76ab09fd]
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@76ab09fd]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@76ab09fd]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@76ab09fd]
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@79fa562d]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will be managed by Spring
+==>  Preparing: select count(*) from njupt_physim.completions where task_id = ?
+==> Parameters: 5(Integer)
+<==    Columns: count(*)
+<==        Row: 1
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@79fa562d]
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@79fa562d]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@79fa562d]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@79fa562d]
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@23c5a8a4]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@717a67c4] will be managed by Spring
+==>  Preparing: insert into njupt_physim.sys_log_operation (operation, request_uri, request_method, request_params, request_time, ip, status, creator_name, creator, type, create_date) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+==> Parameters: 查询:查看学生任务完成情况(String), /tea/LS001/tasks/5/clazzed/B220601/stu(String), GET(String), ["LS001",5,"B220601"](String), 11(Integer), 127.0.0.1(String), 1(Integer), 王增旭(String), LS001(String), 1(String), 2026-09-23T09:12:19.545911900(LocalDateTime)
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5d73001e]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will be managed by Spring
+==>  Preparing: select count(*) from njupt_physim.user_clazz where clazz_id=? and role_id=3
+==> Parameters: B220601(String)
+<==    Updates: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@23c5a8a4]
+2026-09-23T09:12:19.566+08:00  INFO 17368 --- [NJUPTPhySim] [nio-8081-exec-9] o.n.n.s.service.impl.LogServiceImpl      : [操作日志] 用户[王增旭] 于2026-09-23 09:12:19 执行了【查询:查看学生任务完成情况】(类型：业务事件，URI：GET /tea/LS001/tasks/5/clazzed/B220601/stu，耗时：11ms，结果：成功)
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@23c5a8a4]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@23c5a8a4]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@23c5a8a4]
+<==    Columns: count(*)
+<==        Row: 2
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5d73001e]
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5d73001e]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5d73001e]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5d73001e]
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6485eb42]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will be managed by Spring
+==>  Preparing: SELECT id,name,account,password,create_time,role_id,avatar,college FROM users WHERE id=?
+==> Parameters: LS001(String)
+<==    Columns: id, name, account, password, create_time, role_id, avatar, college
+<==        Row: LS001, 王增旭, LS001, 123456, 2025-08-02, 2, , 
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6485eb42]
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6485eb42]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6485eb42]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6485eb42]
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@158f88f7]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will be managed by Spring
+==>  Preparing: insert into njupt_physim.sys_log_operation (operation, request_uri, request_method, request_params, request_time, ip, status, creator_name, creator, type, create_date) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+==> Parameters: 查询:按任务id查看实验任务数据(String), /tea/LS001/tasks/5/detail(String), GET(String), ["LS001",5](String), 25(Integer), 127.0.0.1(String), 1(Integer), 王增旭(String), LS001(String), 1(String), 2026-09-23T09:12:19.545911900(LocalDateTime)
+<==    Updates: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@158f88f7]
+2026-09-23T09:12:19.588+08:00  INFO 17368 --- [NJUPTPhySim] [nio-8081-exec-8] o.n.n.s.service.impl.LogServiceImpl      : [操作日志] 用户[王增旭] 于2026-09-23 09:12:19 执行了【查询:按任务id查看实验任务数据】(类型：业务事件，URI：GET /tea/LS001/tasks/5/detail，耗时：25ms，结果：成功)
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@158f88f7]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@158f88f7]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@158f88f7]
+2026-09-23T09:12:20.881+08:00  INFO 17368 --- [NJUPTPhySim] [nio-8081-exec-1] o.n.n.c.Interceptors.LoginInterceptor    : 请求路径: /tea/LS001/tasks/12/clazzed/B220601/stu
+2026-09-23T09:12:20.881+08:00  INFO 17368 --- [NJUPTPhySim] [io-8081-exec-10] o.n.n.c.Interceptors.LoginInterceptor    : 请求路径: /tea/LS001/tasks/12/detail
+2026-09-23T09:12:20.881+08:00  INFO 17368 --- [NJUPTPhySim] [nio-8081-exec-1] o.n.n.c.Interceptors.LoginInterceptor    : token:eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3OTAxMjQzMjIsImV4cCI6MTc5MDE2MDMyMiwiaWQiOiJMUzAwMSJ9.W_rzHQ-3Hem1Ju33Vk1d-_PjNaklHaDQiQpgGVzotAM
+2026-09-23T09:12:20.881+08:00  INFO 17368 --- [NJUPTPhySim] [io-8081-exec-10] o.n.n.c.Interceptors.LoginInterceptor    : token:eyJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3OTAxMjQzMjIsImV4cCI6MTc5MDE2MDMyMiwiaWQiOiJMUzAwMSJ9.W_rzHQ-3Hem1Ju33Vk1d-_PjNaklHaDQiQpgGVzotAM
+2026-09-23T09:12:20.881+08:00  INFO 17368 --- [NJUPTPhySim] [io-8081-exec-10] o.n.n.c.Interceptors.LoginInterceptor    : 令牌合法, 放行
+2026-09-23T09:12:20.881+08:00  INFO 17368 --- [NJUPTPhySim] [nio-8081-exec-1] o.n.n.c.Interceptors.LoginInterceptor    : 令牌合法, 放行
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@56fef41f]
+Creating a new SqlSession
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@717a67c4] will be managed by Spring
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@34f4f749]
+==>  Preparing: SELECT id,name,account,password,create_time,role_id,avatar,college FROM users WHERE id=?
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will be managed by Spring
+==>  Preparing: SELECT id,name,account,password,create_time,role_id,avatar,college FROM users WHERE id=?
+==> Parameters: LS001(String)
+==> Parameters: LS001(String)
+<==    Columns: id, name, account, password, create_time, role_id, avatar, college
+<==        Row: LS001, 王增旭, LS001, 123456, 2025-08-02, 2, , 
+<==    Columns: id, name, account, password, create_time, role_id, avatar, college
+<==      Total: 1
+<==        Row: LS001, 王增旭, LS001, 123456, 2025-08-02, 2, , 
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@56fef41f]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@56fef41f] from current transaction
+<==      Total: 1
+==>  Preparing: select name from njupt_physim.roles where id = ?
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@34f4f749]
+==> Parameters: 2(Integer)
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@34f4f749] from current transaction
+==>  Preparing: select name from njupt_physim.roles where id = ?
+==> Parameters: 2(Integer)
+<==    Columns: name
+<==        Row: teacher
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@56fef41f]
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@56fef41f]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@56fef41f]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@56fef41f]
+<==    Columns: name
+<==        Row: teacher
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@34f4f749]
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@34f4f749]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@34f4f749]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@34f4f749]
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4765020b]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will be managed by Spring
+==>  Preparing: select id, teacher, clazz_id, exp_id, start_date, end_date, complete_count, total_count from njupt_physim.tasks where id = ?
+==> Parameters: 12(Integer)
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@ec06083]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@717a67c4] will be managed by Spring
+==>  Preparing: select c.id as id, stu_id, score, u.name as stuName from njupt_physim.completions c left join njupt_physim.users u on c.stu_id=u.id where task_id=? and clazz_id=?
+==> Parameters: 12(Integer), B220601(String)
+<==    Columns: id, teacher, clazz_id, exp_id, start_date, end_date, complete_count, total_count
+<==        Row: 12, 王增旭, B220601, 3, 2026-09-15, 2026-09-29, 1, 2
+<==    Columns: id, stu_id, score, stuName
+<==        Row: 2, B22060101, 95, 李斯
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4765020b]
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4765020b]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4765020b]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@4765020b]
+<==        Row: 6, B22060105, 100, 张丽丽
+<==      Total: 2
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@ec06083]
+Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@ec06083] from current transaction
+==>  Preparing: select id, name, account, create_time, role_id, avatar, college from njupt_physim.users where id in (select user_id from njupt_physim.user_clazz where clazz_id=? and user_clazz.role_id=3 )
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3c2d986d]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will be managed by Spring
+==>  Preparing: select * from njupt_physim.resources where id=?
+==> Parameters: B220601(String)
+==> Parameters: 3(Integer)
+<==    Columns: id, title, create_time, creater_id, coverImage, url, tag, content, likes, easy_count, hard_count
+<==    Columns: id, name, account, create_time, role_id, avatar, college
+<==        Row: 3, 声波干涉与共鸣, 2026-03-17, LS001, , , 声学, 观察声波的叠加与干涉现象，理解波的叠加原理, 0, 0, 0
+<==        Row: B22060101, 李斯, B22060101, 2026-02-08, 3, , 
+<==      Total: 1
+<==        Row: B22060105, 张丽丽, B22060105, 2025-08-02, 3, , 
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3c2d986d]
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3c2d986d]
+<==      Total: 2
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3c2d986d]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@3c2d986d]
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@ec06083]
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@ec06083]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@ec06083]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@ec06083]
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1fa2e1b8]
+Creating a new SqlSession
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will be managed by Spring
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6955d03e]
+==>  Preparing: SELECT id,name,account,password,create_time,role_id,avatar,college FROM users WHERE id=?
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@717a67c4] will be managed by Spring
+==>  Preparing: select count(*) from njupt_physim.completions where task_id = ?
+==> Parameters: LS001(String)
+==> Parameters: 12(Integer)
+<==    Columns: id, name, account, password, create_time, role_id, avatar, college
+<==    Columns: count(*)
+<==        Row: 2
+<==      Total: 1
+<==        Row: LS001, 王增旭, LS001, 123456, 2025-08-02, 2, , 
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6955d03e]
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6955d03e]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6955d03e]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@6955d03e]
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1fa2e1b8]
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1fa2e1b8]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1fa2e1b8]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1fa2e1b8]
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@618e8694]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@717a67c4] will be managed by Spring
+==>  Preparing: select count(*) from njupt_physim.user_clazz where clazz_id=? and role_id=3
+==> Parameters: B220601(String)
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@8d89642]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@29d2fa84] will be managed by Spring
+==>  Preparing: insert into njupt_physim.sys_log_operation (operation, request_uri, request_method, request_params, request_time, ip, status, creator_name, creator, type, create_date) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+<==    Columns: count(*)
+<==        Row: 2
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@618e8694]
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@618e8694]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@618e8694]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@618e8694]
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2a227c08]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@717a67c4] will be managed by Spring
+==>  Preparing: SELECT id,name,account,password,create_time,role_id,avatar,college FROM users WHERE id=?
+==> Parameters: LS001(String)
+==> Parameters: 查询:查看学生任务完成情况(String), /tea/LS001/tasks/12/clazzed/B220601/stu(String), GET(String), ["LS001",12,"B220601"](String), 16(Integer), 127.0.0.1(String), 1(Integer), 王增旭(String), LS001(String), 1(String), 2026-09-23T09:12:20.894946(LocalDateTime)
+<==    Columns: id, name, account, password, create_time, role_id, avatar, college
+<==        Row: LS001, 王增旭, LS001, 123456, 2025-08-02, 2, , 
+<==      Total: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2a227c08]
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2a227c08]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2a227c08]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@2a227c08]
+<==    Updates: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@8d89642]
+2026-09-23T09:12:20.933+08:00  INFO 17368 --- [NJUPTPhySim] [nio-8081-exec-1] o.n.n.s.service.impl.LogServiceImpl      : [操作日志] 用户[王增旭] 于2026-09-23 09:12:20 执行了【查询:查看学生任务完成情况】(类型：业务事件，URI：GET /tea/LS001/tasks/12/clazzed/B220601/stu，耗时：16ms，结果：成功)
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@8d89642]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@8d89642]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@8d89642]
+Creating a new SqlSession
+Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5bbfda6b]
+JDBC Connection [com.alibaba.druid.pool.DruidStatementConnection@717a67c4] will be managed by Spring
+==>  Preparing: insert into njupt_physim.sys_log_operation (operation, request_uri, request_method, request_params, request_time, ip, status, creator_name, creator, type, create_date) values (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+==> Parameters: 查询:按任务id查看实验任务数据(String), /tea/LS001/tasks/12/detail(String), GET(String), ["LS001",12](String), 39(Integer), 127.0.0.1(String), 1(Integer), 王增旭(String), LS001(String), 1(String), 2026-09-23T09:12:20.894946(LocalDateTime)
+<==    Updates: 1
+Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5bbfda6b]
+2026-09-23T09:12:20.950+08:00  INFO 17368 --- [NJUPTPhySim] [io-8081-exec-10] o.n.n.s.service.impl.LogServiceImpl      : [操作日志] 用户[王增旭] 于2026-09-23 09:12:20 执行了【查询:按任务id查看实验任务数据】(类型：业务事件，URI：GET /tea/LS001/tasks/12/detail，耗时：39ms，结果：成功)
+Transaction synchronization committing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5bbfda6b]
+Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5bbfda6b]
+Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@5bbfda6b]
+2026-09-23T09:14:18.672+08:00  INFO 17368 --- [NJUPTPhySim] [xecutorLoop-1-1] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was /192.168.233.130:6379
+2026-09-23T09:14:20.721+08:00  WARN 17368 --- [NJUPTPhySim] [ioEventLoop-4-2] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [192.168.233.130/<unresolved>:6379]: Connection refused: no further information: /192.168.233.130:6379
+2026-09-23T09:14:32.968+08:00  INFO 17368 --- [NJUPTPhySim] [xecutorLoop-1-4] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was 192.168.233.130/<unresolved>:6379
+2026-09-23T09:14:42.980+08:00  WARN 17368 --- [NJUPTPhySim] [ioEventLoop-4-5] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [192.168.233.130/<unresolved>:6379]: connection timed out after 10000 ms: /192.168.233.130:6379
+2026-09-23T09:14:43.075+08:00  INFO 17368 --- [NJUPTPhySim] [xecutorLoop-1-5] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was 192.168.233.130/<unresolved>:6379
+2026-09-23T09:14:53.083+08:00  WARN 17368 --- [NJUPTPhySim] [ioEventLoop-4-6] i.l.core.protocol.ConnectionWatchdog     : Cannot reconnect to [192.168.233.130/<unresolved>:6379]: connection timed out after 10000 ms: /192.168.233.130:6379
+2026-09-23T09:14:53.177+08:00  INFO 17368 --- [NJUPTPhySim] [xecutorLoop-1-6] i.l.core.protocol.ConnectionWatchdog     : Reconnecting, last destination was 192.168.233.130/<unresolved>:6379

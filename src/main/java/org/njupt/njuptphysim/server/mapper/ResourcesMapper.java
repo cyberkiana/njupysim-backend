@@ -27,7 +27,7 @@ public interface ResourcesMapper extends BaseMapper<Resources> {
     @Select("select * from njupt_physim.resources where id=#{id}")
     Resources getResourcesById(int id);
 
-    @Select("select id as expId,title from njupt_physim.resources")
+    @Select("select id as expId, title, coverImage, tag, content, url, likes, easy_count as easyCount, hard_count as hardCount from njupt_physim.resources")
     List<ExpListDTO> getAllExpList();
 
     /**

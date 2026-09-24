@@ -18,13 +18,13 @@
 
 
     <insert id="postComment" parameterType="Comments">
-        insert into njupt_physim.comments value
-                (#{userId},#{content},#{resourceId},#{time})
+        insert into njupt_physim.comments (user_id, resource_id, time, content)
+        values (#{userId}, #{resourceId}, #{time}, #{content})
     </insert>
 
     <insert id="postReply" parameterType="Replies">
-        insert into njupt_physim.replies value
-                (#{userId}, #{commentId}, #{time}, #{content}, #{repliedUserName})
+        insert into njupt_physim.replies (user_id, comment_id, time, content, replied_user_name, resource_id)
+        values (#{userId}, #{commentId}, #{time}, #{content}, #{repliedUserName}, #{resourceId})
     </insert>
 
     <update id="addCommentLikes">

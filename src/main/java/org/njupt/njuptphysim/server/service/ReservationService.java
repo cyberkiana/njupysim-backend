@@ -44,4 +44,22 @@ public interface ReservationService {
      */
     List<UserDTO> getReserveStuList(int id);
 
+    /**
+     * 修改单时段最大允许人数
+     */
+    void updateMaxCount(int id, int maxCount);
+
+    /**
+     * 统一设置未来时段的最大允许人数
+     * @return 实际更新的时段数
+     */
+    int batchUpdateMaxCount(int maxCount);
+
+    /**
+     * 管理员手动开关某时段的预约权限
+     * @param id 时段id
+     * @param isActive 1:允许预约 0:禁止预约
+     */
+    void updateActive(int id, int isActive);
+
 }

@@ -1,7 +1,9 @@
 package org.njupt.njuptphysim.server.mapper;
 
 import org.apache.ibatis.annotations.Delete;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.njupt.njuptphysim.pojo.dto.StuCompletedListDTO;
 import org.njupt.njuptphysim.pojo.dto.StuTaskInfoDTO;
@@ -34,10 +36,19 @@ public interface TaskMapper {
     /**
      * 根据任务id查对应实验id
      * @param id taskId
-     * @return 实验id
+     * @return 实验id；任务不存在时为 null
      */
     @Select("select exp_id from njupt_physim.tasks where id=#{id}")
-    int getExpIdById(int id);
+    Integer getExpIdById(int id);
+
+    /**
+     * 按任务id查询任务详情（唯一，避免同班级同实验多任务时按实验id查询的歧义）
+     * @param taskId 任务id
+     * @return 任务详情，不存在时为 null
+     */
+    @Select("select id, teacher, clazz_id, exp_id, start_date, end_date, complete_count, total_count "
+            + "from njupt_physim.tasks where id = #{taskId}")
+    Tasks getTaskById(int taskId);
 
     /**
      * 根据任务id查教师姓名
@@ -48,11 +59,34 @@ public interface TaskMapper {
     String getTeacherById(int id);
 
     /**
-     * 根据教师姓名查询发布的任务
+     * 统计学生是否已完成某任务（防重复记录）
+     */
+    @Select("select count(*) from njupt_physim.completions where stu_id = #{stuId} and task_id = #{taskId}")
+    int countCompletion(@Param("stuId") String stuId, @Param("taskId") int taskId);
+
+    /**
+     * 写入完成记录
+     */
+    @Insert("insert into njupt_physim.completions (stu_id, clazz_id, task_id, time, score) " +
+            "values (#{stuId}, #{clazzId}, #{taskId}, NOW(), #{score})")
+    void insertCompletion(@Param("stuId") String stuId, @Param("clazzId") String clazzId,
+                          @Param("taskId") int taskId, @Param("score") int score);
+
+    /**
+     * 实时统计任务完成人数（以completions表为准，不读tasks表的快照字段）
+     */
+    @Select("select count(*) from njupt_physim.completions where task_id = #{taskId}")
+    int countTaskCompletions(int taskId);
+
+    /**
+     * 根据教师姓名查询发布的任务（完成数/总人数实时统计，与completions表和班级名单同口径）
      * @param teacher 教师姓名
      * @return 任务列表
      */
-    @Select("select id,clazz_id,exp_id,start_date,end_date,complete_count,total_count from njupt_physim.tasks where teacher=#{teacher}")
+    @Select("select t.id, t.clazz_id, t.exp_id, t.start_date, t.end_date, "
+            + "(select count(*) from njupt_physim.completions c where c.task_id = t.id) as complete_count, "
+            + "(select count(*) from njupt_physim.user_clazz uc where uc.clazz_id = t.clazz_id and uc.role_id = 3) as total_count "
+            + "from njupt_physim.tasks t where t.teacher = #{teacher}")
     List<TasksStatsVO> getTeaTasks(String teacher);
 
     /**
@@ -74,20 +108,18 @@ public interface TaskMapper {
     void deleteTask(int taskId);
 
     /**
+     * 删除任务下的全部完成记录（删任务时一并清理，避免孤儿数据）
+     * @param taskId 实验任务id
+     */
+    @Delete("delete from njupt_physim.completions where task_id=#{taskId}")
+    void deleteCompletionsByTaskId(int taskId);
+
+    /**
      * 查询某实验任务某班级已完成学生名单
      * @param taskId 任务id
      * @param clazzId 班级id
      * @return
      */
     List<StuCompletedListDTO> getCompletedExpStuList(int taskId, String clazzId);
-
-    /**
-     * 获取实验任务的具体数据
-     * @param teaId 教师id
-     * @param clazzId 班级id
-     * @param expId 实验id
-     * @return
-     */
-    Tasks getExperimentDetail(String teaId, String clazzId, int expId);
 
 }

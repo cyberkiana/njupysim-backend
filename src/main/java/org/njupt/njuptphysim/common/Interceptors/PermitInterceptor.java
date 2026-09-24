@@ -27,8 +27,8 @@ public class PermitInterceptor implements HandlerInterceptor {
         //1. 获取用户id和角色
         String UserId = BaseContext.getCurrentId();
         String roleName = rolesService.getRoleNameByUserId(UserId);
-        //2. 获取请求url。
-        String url = request.getRequestURL().toString();
+        //2. 获取请求uri（getRequestURI 返回路径部分，用于前缀匹配）
+        String url = request.getRequestURI();
         //3. 判断角色权限是否满足url访问权限
         if(url.startsWith("/admin/")&& roleName.equals("admin")){
             return true;
